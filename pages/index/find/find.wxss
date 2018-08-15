@@ -1,0 +1,98 @@
+.m-tabs {
+  position: relative;
+  background:#fff;
+}
+.tabs {
+  margin:0 auto;
+  display:flex;
+  width: 130px !important;
+  height:42px;
+  line-height:42px;
+  box-sizing:border-box;
+  position:relative;
+  justify-content:space-around;
+  align-items:center;
+  -webkit-box-align:center;
+  background:#fff;
+}
+.tabs-tab {
+  flex:1;
+  display:flex;
+  width:100%;
+  -webkit-box-pack:center;
+  justify-content:center;
+  -webkit-box-align:center;
+  align-items:center;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+  flex-direction:column;
+  text-align:center;
+  position:relative;
+}
+.tabs-tab-title {
+  font-size:14px;
+  text-align:center;
+  box-sizing:border-box;
+  color:#80848f;
+}
+.tabs-tab-bar {
+  display: none;
+  width:100%;
+  height:2px;
+  background:0 0;
+  position:absolute;
+  bottom:0;
+  left:0;
+  background:#2d8cf0;
+}
+.tabs-tab-current .tabs-tab-title {
+  color:#fedb1d;
+}
+.tabs-tab-current .tabs-tab-bar{
+  display: block;
+  background: #fedb1d;
+}
+.search{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
+  text-align: center;
+}
+/* 推荐 */
+.panel2{
+  background: #fff;
+}
+.panel-swiper{
+  margin-bottom: 10px;
+}
+.panel-swiper-image{
+  border-radius: 5px;
+  width: 100%;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.scroll-view-x { 
+  width: 100%; 
+  height: 60px; 
+  display: flex; 
+  overflow: scroll; 
+} 
+.scroll-x-item { 
+  width: 100px; 
+  height: 100%;
+  line-height: 60px;
+  border-radius: 5px;
+  margin-right: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  background: #fedb1d;
+  color: #fff;
+  font-size: 20px;
+  display: inline-table; 
+}

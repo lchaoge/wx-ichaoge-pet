@@ -1,0 +1,34 @@
+<view class="m-header">
+  <view class="h25"></view>
+  <view class='header h45'>
+    <text class="m-title">消息</text>
+  </view>
+</view>
+<view class='m-content'>
+  <i-panel>
+    <i-cell-group>
+      <i-cell title="收到的赞" is-link>
+        <i-avatar size="large" shape="square" slot="icon" i-class="praise">
+          <i-icon type="like" size="24" />
+        </i-avatar>
+      </i-cell>
+      <i-cell title="收到的评论" is-link>
+          <i-avatar size="large" shape="square" slot="icon" i-class="comment">
+            <i-icon type="message" size="24" />
+          </i-avatar>
+      </i-cell>
+      <i-cell title="新关注" is-link>
+          <i-avatar size="large" shape="square" slot="icon" i-class="follow">
+            <i-icon type="like_fill" size="24" />
+          </i-avatar>
+      </i-cell>
+      <i-cell title="宠物卡" label="来聊聊:是什么让你决定养猫的？" is-link>
+          <i-avatar size="large" shape="square" slot="icon" i-class="card">
+            <i-icon type="like_fill" size="24" />
+          </i-avatar>
+      </i-cell>
+    </i-cell-group>
+  </i-panel>
+</view>
+
+

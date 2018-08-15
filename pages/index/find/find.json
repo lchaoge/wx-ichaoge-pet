@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "宠物卡",
+  "usingComponents": {
+    "i-tabs": "../../../dist/tabs/index",
+    "i-tab": "../../../dist/tab/index",
+    "i-panel": "../../../dist/panel/index",
+    "i-icon": "../../../dist/icon/index"
+  }
+}

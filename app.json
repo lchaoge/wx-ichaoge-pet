@@ -1,0 +1,54 @@
+{
+  "pages":[
+    "pages/index/home/home",
+    "pages/index/find/find",
+    "pages/index/news/news",
+    "pages/index/userinfo/userinfo"
+  ],
+  "window":{
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "我的宠物卡",
+    "navigationBarTextStyle":"black",
+    "backgroundColor": "#f9f9f9",
+    "navigationStyle": "custom",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh":true
+  },
+  "tabBar": {
+    "backgroundColor":"#fff",
+    "color":"#000",
+    "selectedColor":"#000",
+    "borderStyle":"white",
+    "list": [
+      {
+        "iconPath":"assets/images/home.png",
+        "selectedIconPath":"assets/images/home-select.png",
+        "pagePath": "pages/index/home/home",
+        "text": "首页"
+      },
+      {
+        "iconPath": "assets/images/find.png",
+        "selectedIconPath": "assets/images/find-select.png",
+        "pagePath": "pages/index/find/find",
+        "text": "发现"
+      },
+      {
+        "iconPath": "assets/images/news.png",
+        "selectedIconPath": "assets/images/news-select.png",
+        "pagePath": "pages/index/news/news",
+        "text": "消息"
+      },
+      {
+        "iconPath": "assets/images/userinfo.png",
+        "selectedIconPath": "assets/images/userinfo-select.png",
+        "pagePath": "pages/index/userinfo/userinfo",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

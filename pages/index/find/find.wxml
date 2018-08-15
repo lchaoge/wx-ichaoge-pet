@@ -1,0 +1,62 @@
+<view class="m-header">
+  <view class="h25"></view>
+  <view class='header h45'>
+    <text class="m-title" bindtap='aaa'>宠物卡</text>
+  </view>
+</view>
+<view class='m-content'>
+  <view class="m-tabs">
+    <view class="tabs">
+      <view class="tabs-tab {{tabCurrent=='tab1'?'tabs-tab-current':''}}" data-index='tab1' bindtap="tabItemEvt">
+        <view class="i-badge">
+          <view class="tabs-tab-title">关注</view>
+          <view class="tabs-tab-bar"></view>
+        </view>
+      </view>
+      <view class="tabs-tab {{tabCurrent=='tab2'?'tabs-tab-current':''}}" data-index='tab2' bindtap="tabItemEvt">
+        <view class="badge">
+          <view class="tabs-tab-title">推荐</view>
+          <view class="tabs-tab-bar"></view>
+        </view>
+      </view>
+      <view class="tabs-tab {{tabCurrent=='tab3'?'tabs-tab-current':''}}" data-index='tab3' bindtap="tabItemEvt">
+        <view class="badge">
+          <view class="tabs-tab-title">科普</view>
+          <view class="tabs-tab-bar"></view>
+        </view>
+      </view>
+    </view>
+    <view class='search' bindtap='searchEvt'>
+      <i-icon type="search" size="24" color="#000000" />
+    </view>
+  </view>
+  <view class="tab-content">
+    <view class="item" wx:if="{{tabCurrent=='tab1'}}">
+      tab1
+    </view>
+    <view class="item" wx:elif="{{tabCurrent=='tab2'}}">
+      <i-panel i-class="mb10 p10 panel2">
+        <swiper class="panel-swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+          <block wx:for="{{imgUrls}}" wx:key="{{item}}">
+            <swiper-item>
+              <image src="{{item}}" class="panel-swiper-image"/>
+            </swiper-item>
+          </block>
+        </swiper>
+        <scroll-view scroll-x class="scroll-view-x" style="width:100%"> 
+          <view class="scroll-view-x"> 
+            <view class="scroll-x-item">今日猫榜</view>
+            <view class="scroll-x-item">话题讨论</view>
+            <view class="scroll-x-item">猫生传记</view>
+            <view class="scroll-x-item">动画专区</view>
+          </view> 
+        </scroll-view> 
+      </i-panel>
+    </view>
+    <view class="item" wx:else>
+      tab3
+    </view>
+  </view>
+
+</view>
+
