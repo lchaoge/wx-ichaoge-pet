@@ -4,6 +4,8 @@
     "i-tabs": "../../../dist/tabs/index",
     "i-tab": "../../../dist/tab/index",
     "i-panel": "../../../dist/panel/index",
+    "i-avatar": "../../../dist/avatar/index",
+    "i-tag": "../../../dist/tag/index",
     "i-icon": "../../../dist/icon/index"
   }
 }
