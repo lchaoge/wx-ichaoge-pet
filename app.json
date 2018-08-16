@@ -1,18 +1,32 @@
 {
   "pages":[
+    
     "pages/index/home/home",
     "pages/index/find/find",
     "pages/index/news/news",
-    "pages/index/userinfo/userinfo"
+    "pages/index/userinfo/userinfo",
+
+    "pages/common/video/video",
+    "pages/common/search/search",
+
+    "pages/userinfo/about/about",
+    "pages/userinfo/exchange/exchange",
+    "pages/userinfo/feeding/feeding",
+    "pages/userinfo/follow/follow",
+    "pages/userinfo/note/note",
+    "pages/userinfo/praise/praise",
+    "pages/userinfo/setup/setup",
+    "pages/userinfo/shop/shop"
+    
   ],
   "window":{
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "我的宠物卡",
+    "navigationBarTitleText": "宠爱",
     "navigationBarTextStyle":"black",
     "backgroundColor": "#f9f9f9",
     "navigationStyle": "custom",
     "backgroundTextStyle": "light",
-    "enablePullDownRefresh":true
+    "enablePullDownRefresh":false
   },
   "tabBar": {
     "backgroundColor":"#fff",

@@ -1,4 +1,9 @@
-
+<view class="m-header">
+  <view class="h25"></view>
+  <view class='header h45'>
+    
+  </view>
+</view>
 <view class='m-content'>
   <i-panel i-class="mb10">
     <view class="i-cell i-cell-last">
@@ -38,23 +43,23 @@
   </i-grid>
   <i-panel i-class="mb10">
     <i-cell-group>
-      <i-cell title="我的关注" is-link>
+      <i-cell title="我的关注" is-link url="/pages/userinfo/follow/follow">
           <i-icon size="24" type="collection" slot="icon" />
       </i-cell>
-      <i-cell title="我赞过的" is-link>
+      <i-cell title="我赞过的" is-link url="/pages/userinfo/praise/praise">
           <i-icon size="24" type="like" slot="icon" />
       </i-cell>
-      <i-cell title="兑换记录" is-link>
+      <i-cell title="兑换记录" is-link url="/pages/userinfo/exchange/exchange">
           <i-icon size="24" type="commodity" slot="icon" />
       </i-cell>
     </i-cell-group>
   </i-panel>
   <i-panel i-class="mb10">
     <i-cell-group>
-      <i-cell title="关于宠爱" is-link>
+      <i-cell title="关于宠爱" is-link url="/pages/userinfo/about/about">
           <i-icon size="24" type="flag" slot="icon" />
       </i-cell>
-      <i-cell title="设置" is-link>
+      <i-cell title="设置" is-link url="/pages/userinfo/setup/setup">
           <i-icon size="24" type="setup" slot="icon" />
       </i-cell>
     </i-cell-group>
