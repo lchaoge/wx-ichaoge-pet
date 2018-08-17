@@ -1,15 +1,15 @@
-.scroll-view-item_H{
-  height: 100px;
-  width: 100px;
-  background: #000;
+.drawer{
+  z-index: 9999;
+}
+.drawer-container{
+	width:50vw;
+	height: 100vh;
+	background:#fff;
+  box-sizing: border-box;
+  padding: 40px 0;
+}
+.drawer-container .h1{
+  padding: 0 30px 20px;
   display: block;
-  margin-right: 10px;
-  float: left;
 }
-.scroll-view-item{
-  height: 100px;
-  width: 100%;
-  background: #000;
-  display: inline-block;
-  margin-right: 10px;
-}
+

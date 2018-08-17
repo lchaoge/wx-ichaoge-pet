@@ -3,10 +3,11 @@ Page({
   data: {
     spinShow: true
   },
-  onLoad(options) {
+  onLoad (options) {
     // 页面初始化 options为页面跳转所带来的参数
+    
   },
-  onReady() {
+  onReady () {
     // 页面渲染完成
     setTimeout(() => {
       this.setData({
@@ -14,20 +15,20 @@ Page({
       });
     }, 1000)
   },
-  onShow() {
+  onShow () {
     // 页面显示
   },
-  onHide() {
+  onHide () {
     // 页面隐藏
   },
-  onUnload() {
+  onUnload () {
     // 页面关闭
   },
   actionBackEvt() {
     wx.switchTab({
-      url: '/pages/index/userinfo/userinfo'
+      url: '/pages/index/news/news'
     })
   }
-
-
+  
+    
 })

@@ -1,6 +1,5 @@
 {
   "pages":[
-    
     "pages/index/home/home",
     "pages/index/find/find",
     "pages/index/news/news",
@@ -16,7 +15,12 @@
     "pages/userinfo/note/note",
     "pages/userinfo/praise/praise",
     "pages/userinfo/setup/setup",
-    "pages/userinfo/shop/shop"
+    "pages/userinfo/shop/shop",
+
+    "pages/news/praise/praise",
+    "pages/news/comment/comment",
+    "pages/news/follow/follow",
+    "pages/news/card/card"
     
   ],
   "window":{

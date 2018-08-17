@@ -5,21 +5,27 @@ Page({
       searchValue: '',
       showClearBtn: false
     },
-    searchResult: []
+    searchResult: [],
+    spinShow: true
   },
-  onLoad: function (options) {
+  onLoad (options) {
     // 页面初始化 options为页面跳转所带来的参数
   },
-  onReady: function () {
+  onReady () {
     // 页面渲染完成
+    setTimeout(() => {
+      this.setData({
+        spinShow: false
+      });
+    }, 1000)
   },
-  onShow: function () {
+  onShow () {
     // 页面显示
   },
-  onHide: function () {
+  onHide () {
     // 页面隐藏
   },
-  onUnload: function () {
+  onUnload () {
     // 页面关闭
   },
   actionBackEvt() {
@@ -28,7 +34,7 @@ Page({
     })
   },
   //输入内容时
-  searchActiveChangeinput: function (e) {
+  searchActiveChangeinput (e) {
     const val = e.detail.value;
     this.setData({
       'search.showClearBtn': val != '' ? true : false,
@@ -36,14 +42,14 @@ Page({
     })
   },
   //点击清除搜索内容
-  searchActiveChangeclear: function (e) {
+  searchActiveChangeclear (e) {
     this.setData({
       'search.showClearBtn': false,
       'search.searchValue': ''
     })
   },
   //点击聚集时
-  focusSearch: function () {
+  focusSearch () {
     if (this.data.search.searchValue) {
       this.setData({
         'search.showClearBtn': true
@@ -51,7 +57,7 @@ Page({
     }
   },
   //搜索提交
-  searchSubmit: function () {
+  searchSubmit () {
     const val = this.data.search.searchValue;
     if (val) {
       const that = this,
@@ -68,7 +74,7 @@ Page({
         },
         method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
         // header: {}, // 设置请求的 header
-        success: function (res) {
+        success (res) {
           // success
           let searchResult = res.data.data;
           const len = searchResult.length;
@@ -80,10 +86,10 @@ Page({
             'search.showClearBtn': false,
           })
         },
-        fail: function () {
+        fail () {
           // fail
         },
-        complete: function () {
+        complete () {
           // complete
           wx.hideToast();
         }

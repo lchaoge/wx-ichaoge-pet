@@ -4,32 +4,34 @@
     <text class="m-title" bindtap='aaa'>宠物卡</text>
   </view>
 </view>
-<view class='m-content'>
-  <view class="m-tabs">
-    <view class="tabs">
-      <view class="tabs-tab {{tabCurrent=='tab1'?'tabs-tab-current':''}}" data-index='tab1' bindtap="tabItemEvt">
-        <view class="i-badge">
-          <view class="tabs-tab-title">关注</view>
-          <view class="tabs-tab-bar"></view>
-        </view>
-      </view>
-      <view class="tabs-tab {{tabCurrent=='tab2'?'tabs-tab-current':''}}" data-index='tab2' bindtap="tabItemEvt">
-        <view class="badge">
-          <view class="tabs-tab-title">推荐</view>
-          <view class="tabs-tab-bar"></view>
-        </view>
-      </view>
-      <view class="tabs-tab {{tabCurrent=='tab3'?'tabs-tab-current':''}}" data-index='tab3' bindtap="tabItemEvt">
-        <view class="badge">
-          <view class="tabs-tab-title">科普</view>
-          <view class="tabs-tab-bar"></view>
-        </view>
+
+<view class="m-tabs fixed">
+  <view class="tabs">
+    <view class="tabs-tab {{tabCurrent=='tab1'?'tabs-tab-current':''}}" data-index='tab1' bindtap="tabItemEvt">
+      <view class="i-badge">
+        <view class="tabs-tab-title">关注</view>
+        <view class="tabs-tab-bar"></view>
       </view>
     </view>
-    <view class='search' bindtap='searchEvt'>
-      <i-icon type="search" size="24" color="#000000" />
+    <view class="tabs-tab {{tabCurrent=='tab2'?'tabs-tab-current':''}}" data-index='tab2' bindtap="tabItemEvt">
+      <view class="badge">
+        <view class="tabs-tab-title">推荐</view>
+        <view class="tabs-tab-bar"></view>
+      </view>
+    </view>
+    <view class="tabs-tab {{tabCurrent=='tab3'?'tabs-tab-current':''}}" data-index='tab3' bindtap="tabItemEvt">
+      <view class="badge">
+        <view class="tabs-tab-title">科普</view>
+        <view class="tabs-tab-bar"></view>
+      </view>
     </view>
   </view>
+  <view class='search' bindtap='searchEvt'>
+    <i-icon type="search" size="24" color="#000000" />
+  </view>
+</view>
+
+<view class='m-content'>
   <view class="tab-content">
     <view class="item" wx:if="{{tabCurrent=='tab1'}}">
       
@@ -44,7 +46,7 @@
               <view class="i-cell-desc">11个月24天</view>
             </view>
             <view class="i-cell-ft">
-                <i-tag class="i-tags" name="关注" color="yellow">关注</i-tag>
+              <i-tag class="i-tags" name="关注" color="yellow">关注</i-tag>
             </view>
           </view>
           <view class="media">
@@ -64,15 +66,15 @@
           </view>
           <view class="btn-group">
             <view class="btn">
-              <i-icon type="like" size="22" color="#b1b1b1"></i-icon>
+              <i-icon i-class="icon" type="like" size="22" color="#b1b1b1"></i-icon>
               <text>2</text>
             </view>
             <view class="btn">
-              <i-icon type="message" size="22" color="#b1b1b1"></i-icon>
+              <i-icon i-class="icon" type="message" size="22" color="#b1b1b1"></i-icon>
               <text>2</text>
             </view>
             <view class="btn">
-              <i-icon type="send" size="22" color="#b1b1b1">3s</i-icon>
+              <i-icon i-class="icon" type="send" size="22" color="#b1b1b1">3s</i-icon>
               <text>2</text>
             </view>
           </view>
@@ -107,15 +109,15 @@
           </view>
           <view class="btn-group">
             <view class="btn">
-              <i-icon type="like" size="22" color="#b1b1b1"></i-icon>
+              <i-icon i-class="icon" type="like" size="22" color="#b1b1b1"></i-icon>
               <text>2</text>
             </view>
             <view class="btn">
-              <i-icon type="message" size="22" color="#b1b1b1"></i-icon>
+              <i-icon i-class="icon" type="message" size="22" color="#b1b1b1"></i-icon>
               <text>2</text>
             </view>
             <view class="btn">
-              <i-icon type="send" size="22" color="#b1b1b1">3s</i-icon>
+              <i-icon i-class="icon" type="send" size="22" color="#b1b1b1">3s</i-icon>
               <text>2</text>
             </view>
           </view>
@@ -150,15 +152,15 @@
           </view>
           <view class="btn-group">
             <view class="btn">
-              <i-icon type="like" size="22" color="#b1b1b1"></i-icon>
+              <i-icon i-class="icon" type="like" size="22" color="#b1b1b1"></i-icon>
               <text>2</text>
             </view>
             <view class="btn">
-              <i-icon type="message" size="22" color="#b1b1b1"></i-icon>
+              <i-icon i-class="icon" type="message" size="22" color="#b1b1b1"></i-icon>
               <text>2</text>
             </view>
             <view class="btn">
-              <i-icon type="send" size="22" color="#b1b1b1">3s</i-icon>
+              <i-icon i-class="icon" type="send" size="22" color="#b1b1b1">3s</i-icon>
               <text>2</text>
             </view>
           </view>
@@ -167,7 +169,7 @@
 
     </view>
     <view class="item" wx:elif="{{tabCurrent=='tab2'}}">
-      <i-panel i-class="mb10 p10 panel2">
+      <view class="mb10 p10 panel2">
         <swiper class="panel-swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
           <block wx:for="{{imgUrls}}" wx:key="{{item}}">
             <swiper-item>
@@ -183,7 +185,7 @@
             <view class="scroll-x-item">动画专区</view>
           </view> 
         </scroll-view> 
-      </i-panel>
+      </view>
       <view class="list">
         
         <view class="card-item">
@@ -216,15 +218,15 @@
           </view>
           <view class="btn-group">
             <view class="btn">
-              <i-icon type="like" size="22" color="#b1b1b1"></i-icon>
+              <i-icon i-class="icon" type="like" size="22" color="#b1b1b1"></i-icon>
               <text>2</text>
             </view>
             <view class="btn">
-              <i-icon type="message" size="22" color="#b1b1b1"></i-icon>
+              <i-icon i-class="icon" type="message" size="22" color="#b1b1b1"></i-icon>
               <text>2</text>
             </view>
             <view class="btn">
-              <i-icon type="send" size="22" color="#b1b1b1">3s</i-icon>
+              <i-icon i-class="icon" type="send" size="22" color="#b1b1b1">3s</i-icon>
               <text>2</text>
             </view>
           </view>
@@ -259,15 +261,15 @@
           </view>
           <view class="btn-group">
             <view class="btn">
-              <i-icon type="like" size="22" color="#b1b1b1"></i-icon>
+              <i-icon i-class="icon" type="like" size="22" color="#b1b1b1"></i-icon>
               <text>2</text>
             </view>
             <view class="btn">
-              <i-icon type="message" size="22" color="#b1b1b1"></i-icon>
+              <i-icon i-class="icon" type="message" size="22" color="#b1b1b1"></i-icon>
               <text>2</text>
             </view>
             <view class="btn">
-              <i-icon type="send" size="22" color="#b1b1b1">3s</i-icon>
+              <i-icon i-class="icon" type="send" size="22" color="#b1b1b1">3s</i-icon>
               <text>2</text>
             </view>
           </view>
@@ -302,15 +304,15 @@
           </view>
           <view class="btn-group">
             <view class="btn">
-              <i-icon type="like" size="22" color="#b1b1b1"></i-icon>
+              <i-icon i-class="icon" type="like" size="22" color="#b1b1b1"></i-icon>
               <text>2</text>
             </view>
             <view class="btn">
-              <i-icon type="message" size="22" color="#b1b1b1"></i-icon>
+              <i-icon i-class="icon" type="message" size="22" color="#b1b1b1"></i-icon>
               <text>2</text>
             </view>
             <view class="btn">
-              <i-icon type="send" size="22" color="#b1b1b1">3s</i-icon>
+              <i-icon i-class="icon" type="send" size="22" color="#b1b1b1">3s</i-icon>
               <text>2</text>
             </view>
           </view>
@@ -353,3 +355,4 @@
 
 </view>
 
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

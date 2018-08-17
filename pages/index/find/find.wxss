@@ -2,6 +2,14 @@
   position: relative;
   background:#fff;
 }
+.m-tabs.fixed{
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: 42px;
+  z-index: 999999;
+}
 .tabs {
   margin:0 auto;
   display:flex;
@@ -61,6 +69,9 @@
   line-height: 42px;
   text-align: center;
 }
+.m-content{
+  margin-top: 112px;
+}
 /* 推荐 */
 .panel2{
   background: #fff;
@@ -97,7 +108,7 @@
   display: inline-table; 
 }
 .cell-avatar-list .i-cell-desc{
-  height: 30px;
+  height: 28px;
   text-overflow: ellipsis;
   overflow: hidden;
 }

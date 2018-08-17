@@ -9,10 +9,29 @@ Page({
       'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'
     ],
-    src: ''
+    src: '',
+    spinShow: true
   },
-  onLoad() {
+  onLoad(options) {
+    // 页面初始化 options为页面跳转所带来的参数
 
+  },
+  onReady() {
+    // 页面渲染完成
+    setTimeout(() => {
+      this.setData({
+        spinShow: false
+      });
+    }, 1000)
+  },
+  onShow() {
+    // 页面显示
+  },
+  onHide() {
+    // 页面隐藏
+  },
+  onUnload() {
+    // 页面关闭
   },
   tabItemEvt(e){
     this.setData({

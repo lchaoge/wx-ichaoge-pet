@@ -1,23 +1,42 @@
-<view class="section">
-  <view class="section__title">vertical scroll</view>
-  <scroll-view scroll-y style="height: 200px;" >
-    <view id="green" class="scroll-view-item bc_green"></view>
-    <view id="red"  class="scroll-view-item bc_red"></view>
-    <view id="yellow" class="scroll-view-item bc_yellow"></view>
-    <view id="blue" class="scroll-view-item bc_blue"></view>
-  </scroll-view>
-
-  <view class="btn-area">
-    <button size="mini" bindtap="tap">click me to scroll into view </button>
-    <button size="mini" bindtap="tapMove">click me to scroll</button>
+<view class="m-header">
+  <view class="h25"></view>
+  <view class='header h45'>
+    <view class='m-action-back' bindtap='toggleMore'>
+      <i-icon type="other" size="30" color="#000"></i-icon>
+    </view>
+    <text class="m-title">我的宠物卡</text>
   </view>
 </view>
-<view class="section section_gap">
-  <view class="section__title">horizontal scroll</view>
-  <scroll-view class="scroll-view_H" scroll-x style="width: 100%" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-    <view id="green" class="scroll-view-item_H bc_green"></view>
-    <view id="red"  class="scroll-view-item_H bc_red"></view>
-    <view id="yellow" class="scroll-view-item_H bc_yellow"></view>
-    <view id="blue" class="scroll-view-item_H bc_blue"></view>
-  </scroll-view>
+<view class='m-content'>
+  <view class="demo">
+    <i-drawer i-class="drawer" mode="left" visible="{{showLeft}}" bind:close="toggleMore">
+        <view class="drawer-container">
+            <text class="h1">更多</text>
+            <i-panel i-class="drawe-cell-panel">
+              <i-cell-group>
+                <i-cell title="编辑宠物卡" is-link>
+                  <i-icon type="brush" slot="icon" color="#999" />
+                </i-cell>
+                <i-cell title="换皮肤" is-link>
+                  <i-icon type="flag" slot="icon" color="#999" />
+                </i-cell>
+                <i-cell title="猫基" is-link>
+                  <i-icon type="like" slot="icon" color="#999" />
+                </i-cell>
+                <i-cell title="保存猫卡图" is-link>
+                  <i-icon type="picture" slot="icon" color="#999" />
+                </i-cell>
+                <i-cell title="罐头兑换" is-link>
+                  <i-icon type="shop_fill" slot="icon" color="#999" />
+                </i-cell>
+                <i-cell title="设置" is-link>
+                  <i-icon type="setup" slot="icon" color="#999" />
+                </i-cell>
+              </i-cell-group>
+            </i-panel>
+        </view>
+    </i-drawer>
+  </view>
 </view>
+
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

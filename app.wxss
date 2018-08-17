@@ -7,12 +7,13 @@ page{
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  height: 70px;
+  z-index: 5;
   background: #fff;
 }
 .m-header .m-action-back{
   position: relative;
-  z-index: 20;
+  z-index: 5;
   line-height:45px;
   width:45px;
   text-align:center;
@@ -98,6 +99,7 @@ page{
 .card-item .media-images-img{
   display: block;
   width: 100%;
+  height: 230px;
   cursor: pointer;
 }
 .card-item .media-images-text{
@@ -116,11 +118,14 @@ page{
 }
 .card-item .media-video{
   position: relative;
+  z-index: 1;
 }
 .card-item .media-video .video{
   width: 100%;
   height: 230px;
   display: block;
+  position: relative;
+  z-index: 1;
 }
 .card-item .content{
   padding: 10px;
@@ -131,13 +136,26 @@ page{
 }
 .card-item .btn-group{
   font-size: 0;
+  height: 22px;
   padding: 0 10px 10px 10px;
 }
 .card-item .btn-group .btn{
-  display: inline-block;
+  overflow: hidden;
   margin-right: 10px;
-  font-size: 18px;
   color: #b1b1b1;
+  font-size: 0;
+  display: inline-block;
+}
+.card-item .btn-group .btn .icon{
+  float: left;
+}
+.card-item .btn-group .btn text{
+  font-size: 16px;
+  float: left;
+}
+/* 通用组件 */
+.navigator-hover {
+	background: transparent;
 }
 /* 通用 */
 .f12{font-size:12px;}
