@@ -33,8 +33,8 @@
 
 <view class='m-content'>
   <view class="tab-content">
+
     <view class="item" wx:if="{{tabCurrent=='tab1'}}">
-      
       <view class="list">
         <view class="card-item">
           <view class="i-cell i-cell-last">
@@ -58,7 +58,10 @@
               </view>
             </view>
             <view wx:else class="media-video">
-              <video class="video" bindtap="myVideoPlayEvt" src="http://www.w3school.com.cn/i/movie.ogg" data-src="http://www.w3school.com.cn/i/movie.ogg" controls></video>
+              <image class="media-video-img" src="https://i.loli.net/2017/08/21/599a521472424.jpg" bindtap="myVideoPlayEvt" data-videourl="http://www.w3school.com.cn/i/movie.ogg"></image>
+              <view class="media-video-paly">
+                <i-icon type="play_fill" size="28" color="#fff"></i-icon>
+              </view>
             </view>
           </view>
           <view class='content'>
@@ -101,50 +104,10 @@
               </view>
             </view>
             <view wx:else class="media-video">
-              <video class="video" bindtap="myVideoPlayEvt" src="http://www.w3school.com.cn/i/movie.ogg" data-src="http://www.w3school.com.cn/i/movie.ogg" controls></video>
-            </view>
-          </view>
-          <view class='content'>
-            <text>解决了少时多餐、南方天气潮、加班回太晚等一系列问题</text>
-          </view>
-          <view class="btn-group">
-            <view class="btn">
-              <i-icon i-class="icon" type="like" size="22" color="#b1b1b1"></i-icon>
-              <text>2</text>
-            </view>
-            <view class="btn">
-              <i-icon i-class="icon" type="message" size="22" color="#b1b1b1"></i-icon>
-              <text>2</text>
-            </view>
-            <view class="btn">
-              <i-icon i-class="icon" type="send" size="22" color="#b1b1b1">3s</i-icon>
-              <text>2</text>
-            </view>
-          </view>
-        </view>
-        <view class="card-item">
-          <view class="i-cell i-cell-last">
-            <view class="i-cell-icon">
-              <i-avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" size="large"></i-avatar>
-            </view>
-            <view class="i-cell-bd">
-              <view class="i-cell-text">小朝歌</view>
-              <view class="i-cell-desc">11个月24天</view>
-            </view>
-            <view class="i-cell-ft">
-                <i-tag class="i-tags" name="关注" color="yellow">关注</i-tag>
-            </view>
-          </view>
-          <view class="media">
-            <view wx:if="{{false}}" class="media-images">
-              <image class="media-images-img" src="https://i.loli.net/2017/08/21/599a521472424.jpg"></image>
-              <view class="media-images-text">
-                <i-icon type="picture" size="20" color="#fff"></i-icon>
-                <text>4</text>
+              <image class="media-video-img" src="https://i.loli.net/2017/08/21/599a521472424.jpg" bindtap="myVideoPlayEvt" data-videourl="http://www.w3school.com.cn/i/movie.ogg"></image>
+              <view class="media-video-paly">
+                <i-icon type="play_fill" size="28" color="#fff"></i-icon>
               </view>
-            </view>
-            <view wx:else class="media-video">
-              <video class="video" bindtap="myVideoPlayEvt" src="http://www.w3school.com.cn/i/movie.ogg" data-src="http://www.w3school.com.cn/i/movie.ogg" controls></video>
             </view>
           </view>
           <view class='content'>
@@ -166,8 +129,8 @@
           </view>
         </view>
       </view>
-
     </view>
+
     <view class="item" wx:elif="{{tabCurrent=='tab2'}}">
       <view class="mb10 p10 panel2">
         <swiper class="panel-swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
@@ -187,7 +150,6 @@
         </scroll-view> 
       </view>
       <view class="list">
-        
         <view class="card-item">
           <view class="i-cell i-cell-last">
             <view class="i-cell-icon">
@@ -210,7 +172,10 @@
               </view>
             </view>
             <view wx:else class="media-video">
-              <video class="video" bindtap="myVideoPlayEvt" src="http://www.w3school.com.cn/i/movie.ogg" data-src="http://www.w3school.com.cn/i/movie.ogg" controls></video>
+              <image class="media-video-img" src="https://i.loli.net/2017/08/21/599a521472424.jpg" bindtap="myVideoPlayEvt"data-videourl="http://www.w3school.com.cn/i/movie.ogg"></image>
+              <view class="media-video-paly">
+                <i-icon type="play_fill" size="28" color="#fff"></i-icon>
+              </view>
             </view>
           </view>
           <view class='content'>
@@ -253,51 +218,11 @@
               </view>
             </view>
             <view wx:else class="media-video">
-              <video class="video" bindtap="myVideoPlayEvt" src="http://www.w3school.com.cn/i/movie.ogg" data-src="http://www.w3school.com.cn/i/movie.ogg" controls></video>
-            </view>
-          </view>
-          <view class='content'>
-            <text>解决了少时多餐、南方天气潮、加班回太晚等一系列问题</text>
-          </view>
-          <view class="btn-group">
-            <view class="btn">
-              <i-icon i-class="icon" type="like" size="22" color="#b1b1b1"></i-icon>
-              <text>2</text>
-            </view>
-            <view class="btn">
-              <i-icon i-class="icon" type="message" size="22" color="#b1b1b1"></i-icon>
-              <text>2</text>
-            </view>
-            <view class="btn">
-              <i-icon i-class="icon" type="send" size="22" color="#b1b1b1">3s</i-icon>
-              <text>2</text>
-            </view>
-          </view>
-        </view>
-        <view class="card-item">
-          <view class="i-cell i-cell-last">
-            <view class="i-cell-icon">
-              <i-avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" size="large"></i-avatar>
-            </view>
-            <view class="i-cell-bd">
-              <view class="i-cell-text">小朝歌</view>
-              <view class="i-cell-desc">11个月24天</view>
-            </view>
-            <view class="i-cell-ft">
-                <i-tag class="i-tags" name="关注" color="yellow">关注</i-tag>
-            </view>
-          </view>
-          <view class="media">
-            <view wx:if="{{false}}" class="media-images">
-              <image class="media-images-img" src="https://i.loli.net/2017/08/21/599a521472424.jpg"></image>
-              <view class="media-images-text">
-                <i-icon type="picture" size="20" color="#fff"></i-icon>
-                <text>4</text>
+              <image class="media-video-img" src="https://i.loli.net/2017/08/21/599a521472424.jpg" bindtap="myVideoPlayEvt" data-videourl="http://www.w3school.com.cn/i/movie.ogg"></image>
+              <view class="media-video-paly">
+                <i-icon type="play_fill" size="28" color="#fff"></i-icon>
               </view>
             </view>
-            <view wx:else class="media-video">
-              <video class="video" bindtap="myVideoPlayEvt" src="http://www.w3school.com.cn/i/movie.ogg" data-src="http://www.w3school.com.cn/i/movie.ogg" controls></video>
-            </view>
           </view>
           <view class='content'>
             <text>解决了少时多餐、南方天气潮、加班回太晚等一系列问题</text>
@@ -317,9 +242,9 @@
             </view>
           </view>
         </view>
-
       </view>
     </view>
+
     <view class="item" wx:else>
       <i-panel>
         <view class="i-cell i-cell-last cell-avatar-list">
@@ -351,6 +276,7 @@
         </view>
       </i-panel>
     </view>
+
   </view>
 
 </view>

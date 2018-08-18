@@ -8,34 +8,61 @@
   </view>
 </view>
 <view class='m-content'>
-  <view class="demo">
-    <i-drawer i-class="drawer" mode="left" visible="{{showLeft}}" bind:close="toggleMore">
-        <view class="drawer-container">
-            <text class="h1">更多</text>
-            <i-panel i-class="drawe-cell-panel">
-              <i-cell-group>
-                <i-cell title="编辑宠物卡" is-link>
-                  <i-icon type="brush" slot="icon" color="#999" />
-                </i-cell>
-                <i-cell title="换皮肤" is-link>
-                  <i-icon type="flag" slot="icon" color="#999" />
-                </i-cell>
-                <i-cell title="猫基" is-link>
-                  <i-icon type="like" slot="icon" color="#999" />
-                </i-cell>
-                <i-cell title="保存猫卡图" is-link>
-                  <i-icon type="picture" slot="icon" color="#999" />
-                </i-cell>
-                <i-cell title="罐头兑换" is-link>
-                  <i-icon type="shop_fill" slot="icon" color="#999" />
-                </i-cell>
-                <i-cell title="设置" is-link>
-                  <i-icon type="setup" slot="icon" color="#999" />
-                </i-cell>
-              </i-cell-group>
-            </i-panel>
+  <i-drawer i-class="drawer" mode="left" visible="{{showLeft}}" bind:close="toggleMore">
+    <view class="drawer-container">
+        <text class="h1">更多</text>
+        <i-panel i-class="drawe-cell-panel">
+          <i-cell-group>
+            <i-cell title="编辑宠物卡" is-link>
+              <i-icon type="brush" slot="icon" color="#999" />
+            </i-cell>
+            <i-cell title="换皮肤" is-link>
+              <i-icon type="flag" slot="icon" color="#999" />
+            </i-cell>
+            <i-cell title="猫基" is-link>
+              <i-icon type="like" slot="icon" color="#999" />
+            </i-cell>
+            <i-cell title="保存猫卡图" is-link>
+              <i-icon type="picture" slot="icon" color="#999" />
+            </i-cell>
+            <i-cell title="罐头兑换" is-link>
+              <i-icon type="shop_fill" slot="icon" color="#999" />
+            </i-cell>
+            <i-cell title="设置" is-link>
+              <i-icon type="setup" slot="icon" color="#999" />
+            </i-cell>
+          </i-cell-group>
+        </i-panel>
+    </view>
+  </i-drawer>
+  <view class="home">
+    <view class="home-panel-userinfo">
+      <view class="userinfo-left">
+        <view class="title">苗呆</view>
+        <view class="attribute">
+          <i-icon type="like" size="28" color="#80848f">已绝育</i-icon>
+          <text>4岁4个月</text>
         </view>
-    </i-drawer>
+        <view class="list">
+          <view class="item">
+            <i-icon type="like" size="28" color="#80848f"></i-icon>
+            <view class="icon-item-name">体重</view>
+          </view>
+          <view class="item">
+            <i-icon type="like" size="28" color="#80848f"></i-icon>
+            <view class="icon-item-name">戏精</view>
+          </view>
+          <view class="item">
+            <i-icon type="like" size="28" color="#80848f"></i-icon>
+            <view class="icon-item-name">2014-3-24 白羊座</view>
+          </view>
+        </view>
+      </view>  
+      <view class="userinfo-right">
+        <image class="petImage" src="https://i.loli.net/2017/08/21/599a521472424.jpg"></image>
+        <text class="petNo">爱宠号：789813</text>
+      </view>
+    </view>
   </view>
 </view>
 

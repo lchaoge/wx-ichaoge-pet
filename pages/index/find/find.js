@@ -45,7 +45,7 @@ Page({
   },
   myVideoPlayEvt(e){
     wx.navigateTo({
-      url: '../../common/video/video?src=' + e.currentTarget.dataset.src,
+      url: '../../common/video/video?src=' + e.currentTarget.dataset.videourl,
     })
   }
 
