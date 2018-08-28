@@ -1,12 +1,14 @@
 {
-  "navigationBarTitleText": "我的宠物卡",
+  "navigationBarTitleText": "宠物卡",
   "usingComponents": {
-    "i-drawer": "../../../dist/drawer/index",
-    "i-button": "../../../dist/button/index",
-    "i-icon": "../../../dist/icon/index",
+    "i-tabs": "../../../dist/tabs/index",
+    "i-tab": "../../../dist/tab/index",
+    "i-panel": "../../../dist/panel/index",
     "i-cell-group": "../../../dist/cell-group/index",
     "i-cell": "../../../dist/cell/index",
-    "i-panel": "../../../dist/panel/index",
+    "i-avatar": "../../../dist/avatar/index",
+    "i-tag": "../../../dist/tag/index",
+    "i-icon": "../../../dist/icon/index",
     "i-spin": "../../../dist/spin/index"
   }
 }

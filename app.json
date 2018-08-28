@@ -2,7 +2,7 @@
   "pages":[
     
     "pages/index/home/home",
-    "pages/index/find/find",
+    "pages/index/pet/pet",
     "pages/index/news/news",
     "pages/index/userinfo/userinfo",
 
@@ -21,8 +21,10 @@
     "pages/news/praise/praise",
     "pages/news/comment/comment",
     "pages/news/follow/follow",
-    "pages/news/card/card"
-    
+    "pages/news/card/card",
+
+    "pages/pet/card/card",
+    "pages/pet/insert/insert"
   ],
   "window":{
     "navigationBarBackgroundColor": "#fff",
@@ -41,25 +43,25 @@
     "list": [
       {
         "iconPath":"assets/images/home.png",
-        "selectedIconPath":"assets/images/home-select.png",
+        "selectedIconPath":"assets/images/home-selected.png",
         "pagePath": "pages/index/home/home",
         "text": "首页"
       },
       {
-        "iconPath": "assets/images/find.png",
-        "selectedIconPath": "assets/images/find-select.png",
-        "pagePath": "pages/index/find/find",
-        "text": "发现"
+        "iconPath": "assets/images/pet.png",
+        "selectedIconPath": "assets/images/pet-selected.png",
+        "pagePath": "pages/index/pet/pet",
+        "text": "萌宠"
       },
       {
         "iconPath": "assets/images/news.png",
-        "selectedIconPath": "assets/images/news-select.png",
+        "selectedIconPath": "assets/images/news-selected.png",
         "pagePath": "pages/index/news/news",
         "text": "消息"
       },
       {
         "iconPath": "assets/images/userinfo.png",
-        "selectedIconPath": "assets/images/userinfo-select.png",
+        "selectedIconPath": "assets/images/userinfo-selected.png",
         "pagePath": "pages/index/userinfo/userinfo",
         "text": "我的"
       }

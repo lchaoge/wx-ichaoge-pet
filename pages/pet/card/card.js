@@ -1,17 +1,12 @@
-//index.js
-//获取应用实例
 const app = getApp()
-
 Page({
   data: {
-    tabbarKey: 'userinfo',
-    spinShow: true
+    spinShow:true
   },
-  onLoad(options) {
+  onLoad (options) {
     // 页面初始化 options为页面跳转所带来的参数
-    
   },
-  onReady() {
+  onReady () {
     // 页面渲染完成
     setTimeout(() => {
       this.setData({
@@ -19,22 +14,23 @@ Page({
       });
     }, 1000)
   },
-  onShow() {
+  onShow () {
     // 页面显示
   },
-  onHide() {
+  onHide () {
     // 页面隐藏
   },
-  onUnload() {
+  onUnload () {
     // 页面关闭
   },
-  tabbarEvt({ detail }) {
-    wx.navigateTo({
-      url: '../' + detail.key + '/' + detail.key
-    });
+  actionBackEvt() {
+    wx.navigateBack()
   },
-  getUserInfo(){
-    app.getUserInfo();
+  addCard(){
+    wx.navigateTo({
+      url: '/pages/pet/insert/insert'
+    })
   }
- 
+  
+    
 })

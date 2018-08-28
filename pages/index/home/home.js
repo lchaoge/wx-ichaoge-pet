@@ -1,7 +1,24 @@
+//index.js
+//获取应用实例
 const app = getApp()
+
 Page({
   data: {
-    showLeft: false,
+    tabCurrent: 'tab2',
+    imgUrls: [
+      './images/banner1.png',
+      './images/banner2.png',
+      './images/banner3.png',
+      './images/banner4.png',
+      './images/banner5.png',
+      './images/banner6.png'
+    ],
+    userUrls:[
+      './images/1.png',
+      './images/2.png',
+      './images/3.png'
+    ],
+    src: '',
     spinShow: true
   },
   onLoad(options) {
@@ -25,9 +42,20 @@ Page({
   onUnload() {
     // 页面关闭
   },
-  toggleMore() {
+  tabItemEvt(e){
     this.setData({
-      showLeft: !this.data.showLeft
+      tabCurrent: e.currentTarget.dataset.index
     });
+  },
+  searchEvt(){
+    wx.navigateTo({
+      url: '../../common/search/search',
+    })
+  },
+  myVideoPlayEvt(e){
+    wx.navigateTo({
+      url: '../../common/video/video?src=' + e.currentTarget.dataset.videourl,
+    })
   }
-});
+
+})

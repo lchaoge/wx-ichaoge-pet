@@ -9,11 +9,14 @@
         <i-avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" size="large" shape="square"></i-avatar>
       </view>
       <view class="i-cell-bd">
-        <view class="i-cell-text">朝歌</view>
+        <view class="i-cell-text">{{globalData.userInfo.nickName}}</view>
         <view class="i-cell-desc">有2张宠物卡</view>
       </view>
       <view class="i-cell-ft">
-        <view>更新头像</view>
+        <button class="tag" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+          <i-icon type="mine" size="16" />
+          <text>更新头像</text>
+        </button>
       </view>
     </view>
   </i-panel>

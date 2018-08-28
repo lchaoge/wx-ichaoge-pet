@@ -32,9 +32,7 @@ Page({
     // 页面关闭
   },
   actionBackEvt() {
-    wx.switchTab({
-      url: '/pages/index/find/find'
-    })
+    wx.navigateBack()
   },
   
 })

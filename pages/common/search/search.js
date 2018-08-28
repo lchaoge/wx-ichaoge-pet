@@ -30,7 +30,7 @@ Page({
   },
   actionBackEvt() {
     wx.switchTab({
-      url: '/pages/index/find/find'
+      url: '/pages/index/home/home'
     })
   },
   //输入内容时

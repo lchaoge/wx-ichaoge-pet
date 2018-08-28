@@ -11,13 +11,19 @@
 <view class='m-content'>
   <view class="about">
     <view class='avatar'>
-      <i-avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" size="large" shape="square" i-class="avatar"></i-avatar>
+      <image src="./images/logo3.png" class="avatar"></image>
     </view>
     <view class="title">宠爱</view>
     <view class="content">‘宠爱’ 是一款为爱宠用户提供名片生成，专属相册猫咪介绍，猫咪科普等功能的小程序。</view>
     <view class="content m40">我们希望每一只猫都有自己专属的名片，保存每一只猫的资料，当然我们也欢迎其他动物来注册哦，同时也希望每一位主人能够科学的饲养，有责任心，陪它们度过完美的一生，相信有你们的支持，我们一定可以让人与动物的关系变得更美好。</view>
-    <view class="text">联系我们：www.ichaoge.com (点我复制)</view>
-    <view class="text">微信：jay_327973400 (点我复制)</view>
+    <view class="text">
+      <text>联系我们：www.ichaoge.com</text> 
+      <navigator>(点我复制)</navigator>
+    </view>
+    <view class="text">
+      <text>微信：jay_327973400</text>
+      <navigator>(点我复制)</navigator>
+    </view>
   </view>
 </view>
 <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

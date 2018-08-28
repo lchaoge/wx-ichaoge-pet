@@ -1,3 +1,7 @@
+/* 粉色 #ffc3c3 */
+/* 黄色 #fce340 */
+/* 绿色 #6de2c5 */
+/* 西瓜红 #fe7773 */
 page{
   background: #efeff4;
 }
@@ -22,12 +26,13 @@ page{
   -webkit-font-smoothing: antialiased;
 }
 .m-header .m-title {
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 500;
   line-height: 45px;
   position: absolute;
   right: 40px;
   left: 40px;
+  height: 45px;
   display: inline-block;
   overflow: hidden;
   width: auto;
@@ -76,7 +81,11 @@ page{
 }
 .i-cell-text {
   line-height:24px;
+  height: 24px;
   font-size:14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* white-space: nowrap; */
 }
 .i-cell-desc {
   line-height:1.2;

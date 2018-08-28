@@ -18,12 +18,12 @@
       </view>
       <view class="mui-media-body">
         <view class="mui-table">
-          <view class="mui-table-cell mui-col-xs-8">
+          <view class="mui-table-cell mui-col-xs-6">
             <view class="mui-ellipsis">四大猫生必备维生素盘点</view>
-            <view class="h5">对猫咪而言，维生素A、B</view>
+            <view class="h5 mui-ellipsis">对猫咪而言，维生素A、B</view>
             <view class="mui-h6 mui-ellipsis p">猫卡的文章</view>
           </view>
-          <view class="mui-table-cell mui-col-xs-4 mui-text-right">
+          <view class="mui-table-cell mui-col-xs-6 mui-text-right">
             <view class="mui-h5">8月17日 12:25</view>
           </view>
         </view>
@@ -37,12 +37,12 @@
       </view>
       <view class="mui-media-body">
         <view class="mui-table">
-          <view class="mui-table-cell mui-col-xs-8">
+          <view class="mui-table-cell mui-col-xs-6">
             <view class="mui-ellipsis">四大猫生必备维生素盘点</view>
-            <view class="h5">对猫咪而言，维生素A、B</view>
+            <view class="h5 mui-ellipsis">对猫咪而言，维生素A、B</view>
             <view class="mui-h6 mui-ellipsis p">猫卡的文章</view>
           </view>
-          <view class="mui-table-cell mui-col-xs-4 mui-text-right">
+          <view class="mui-table-cell mui-col-xs-6 mui-text-right">
             <view class="mui-h5">8月17日 12:25</view>
           </view>
         </view>
@@ -56,12 +56,12 @@
       </view>
       <view class="mui-media-body">
         <view class="mui-table">
-          <view class="mui-table-cell mui-col-xs-8">
+          <view class="mui-table-cell mui-col-xs-6">
             <view class="mui-ellipsis">四大猫生必备维生素盘点</view>
-            <view class="h5">对猫咪而言，维生素A、B</view>
+            <view class="h5 mui-ellipsis">对猫咪而言，维生素A、B</view>
             <view class="mui-h6 mui-ellipsis p">猫卡的文章</view>
           </view>
-          <view class="mui-table-cell mui-col-xs-4 mui-text-right">
+          <view class="mui-table-cell mui-col-xs-6 mui-text-right">
             <view class="mui-h5">8月17日 12:25</view>
           </view>
         </view>
