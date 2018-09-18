@@ -4,19 +4,19 @@
 </view>
 <view class='m-content'>
   <i-panel i-class="mb10">
-    <view class="i-cell i-cell-last">
+    <view class="i-cell i-cell-last" bindtap="insertPet">
       <view class="i-cell-icon">
-        <i-avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" size="large" shape="square"></i-avatar>
+        <i-avatar src="{{currentUser.photo}}" size="large" shape="square"></i-avatar>
       </view>
       <view class="i-cell-bd">
-        <view class="i-cell-text">{{globalData.userInfo.nickName}}</view>
-        <view class="i-cell-desc">有2张宠物卡</view>
+        <view class="i-cell-text">{{currentUser.nickName}}</view>
+        <view class="i-cell-desc">{{petList.length<=0?"还没有萌宠卡，前往注册":"有"+petList.length+"张萌宠卡"}}</view>
       </view>
       <view class="i-cell-ft">
-        <button class="tag" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
-          <i-icon type="mine" size="16" />
+        <i-button i-class="tag" bind:click="getUserInfo" open-type="getUserInfo" catchtap="getUserInfo" type="ghost" shape="circle" size="small" inline>
+          <i-icon type="mine" size="13" />
           <text>更新头像</text>
-        </button>
+        </i-button>
       </view>
     </view>
   </i-panel>

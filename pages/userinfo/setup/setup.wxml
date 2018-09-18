@@ -9,12 +9,20 @@
 </view>
 
 <view class='m-content'>
-  
-  <i-panel class="cell-panel-demo" title="默认收货地址">
-    <i-cell title="收件人：朝歌 13260094140" label="北京市 北京市 大兴区 长子营镇佟庄村" is-link></i-cell>
-  </i-panel>
-  <i-panel class="cell-panel-demo" title="设置安全手机">
-    <i-cell title="绑定手机号" is-link></i-cell>
+  <view wx:if="{{isAddress}}">
+    <i-panel i-class="cell-panel-address" title="默认收货地址">
+      <i-cell title="设置默认收货地址" is-link bind:click="addressEvt"></i-cell>
+    </i-panel>
+  </view>
+  <view wx:else>
+    <i-panel i-class="cell-panel-address" title="默认收货地址">
+      <i-cell title="收件人：{{address.consignee}} {{address.phone}}" label="{{address.address}}" is-link bind:click="addressEvt"></i-cell>
+    </i-panel>
+  </view>
+  <i-panel i-class="cell-panel-phone" title="设置安全手机">
+    <i-cell title="绑定手机号" is-link bind:click="phoneEvt">
+      <i-button i-class="phone" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" type="ghost"></i-button>
+    </i-cell>
   </i-panel>
 
 </view>

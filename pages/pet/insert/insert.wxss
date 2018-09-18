@@ -1,9 +1,32 @@
+.panel{
+  position: fixed !important;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+.i-input-nickname{
+  margin-top: 50px;
+  padding-right: 90px !important;
+}
+.i-input-sex{
+  padding-right: 90px !important;
+}
+.i-input-placeholder.nickname{
+  font-size: 20px;
+}
 .avatar{
-  margin: 10px auto;
+  position: absolute !important;
+  top: 30px;
+  right: 10px;
+  margin: 0;
   width: 80px !important;
   height: 80px !important;
   border-radius: 100% !important;
   display: block !important;
+  overflow: hidden;
+  z-index: 2;
 }
 .i-input-title {
   color:#495060;
@@ -33,6 +56,7 @@
   color:#495060;
 }
 .btn-group{
+  margin-top: 20px;
   text-align: center;
 }
 .btn-save{
@@ -44,4 +68,63 @@
 }
 .i-cell::after{
   height: 0;
+}
+
+
+
+/* 宠物分类 */
+.i-picker-view {
+  width: 100%;
+  display: flex;
+  z-index:12;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  height: 50vh;
+}
+.i-picker-view-mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 8;
+  background: rgba(0, 0, 0, 0.6);
+}
+.i-picker-view-column-item{
+  line-height: 50px;
+  text-align: center;
+  margin-left: 5rpx;
+  margin-right: 5rpx;
+}
+.i-picker-view-btn{
+  position: relative;
+  height:10vh;
+  width:100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.i-picker-view-btn::after{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  content: '';
+  -webkit-transform: scaleY(.5);
+  transform: scaleY(.5);
+  background-color: #f4f4f4;
+}
+.i-btn{
+  font-weight: 500;
+  color: #999;
+  font-size: 16px;
+}
+.i-btn.i-sure{
+  float: right;
+  color: #1AAD16;
 }

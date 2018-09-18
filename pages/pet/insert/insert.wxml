@@ -4,54 +4,88 @@
     <view class='m-action-back' bindtap='actionBackEvt'>
       <i-icon type="return" size="20" color="#000"></i-icon>
     </view>
-    <text class="m-title">爱宠资料</text>
+    <text class="m-title">萌宠资料</text>
   </view>
 </view>
 
 <view class='m-content'>
-  <i-panel i-class="panel">
-    <i-avatar i-class="avatar" src="https://i.loli.net/2017/08/21/599a521472424.jpg" size="large" ></i-avatar>
-    <view class="i-cell i-input">
-      <view class="i-cell-hd i-input-title">爱宠名：</view>
-      <input class="i-input-placeholder" placeholder="点击输入爱宠名"></input>
+  <view class="panel">
+    <image class="avatar" bindtap="chooseImage" src='{{pet.photo?pet.photo:"https://i.loli.net/2017/08/21/599a521472424.jpg"}}'></image>
+    <view class="i-cell i-input i-input-nickname">
+      <input class="i-input-placeholder nickname" bindinput="nicknameInput" value="{{pet.nickname}}" placeholder="点击输入爱宠名"></input>
     </view>
-    <view class="i-cell i-input">
+    <view class="i-cell i-input i-input-sex">
       <view class="i-cell-hd i-input-title">性别：</view>
-      <i-tag checkable="{{true}}" color="yellow" checked="{{true}}" type="border" style="margin-right:5px;">男</i-tag>
-      <i-tag checkable="{{true}}" color="yellow" checked="{{true}}" type="border" style="margin-right:5px;">女</i-tag>
+      <i-tag checkable="{{true}}" name="1" color="yellow" checked="{{pet.sex==1}}" type="border" bind:change="changeSex" style="margin-right:5px;">男</i-tag>
+      <i-tag checkable="{{true}}" name="0" color="yellow" checked="{{pet.sex==0}}" type="border" bind:change="changeSex" style="margin-right:5px;">女</i-tag>
     </view>
     <view class="i-cell i-input">
       <view class="i-cell-hd i-input-title">体重：</view>
-      <input class="i-input-placeholder" placeholder="点击输入体重(kg)"></input>
+      <input type="number" class="i-input-placeholder" value="{{pet.weight}}" bindinput="weightInput" placeholder="点击输入体重(kg)"></input>
     </view>
     <view class="i-cell i-input">
       <view class="i-cell-hd i-input-title">一句描述：</view>
-      <input class="i-input-placeholder" placeholder="爱吃啥，有啥特点..."></input>
+      <input class="i-input-placeholder" value="{{pet.describes}}" bindinput="describeInput" placeholder="爱吃啥，有啥特点..."></input>
+    </view>
+    <view class="i-cell i-input">
+      <view class="i-cell-hd i-input-title">宠物分类：</view>
+      <label bindtap="changePetSortId">
+        <input class="i-input-placeholder" value="{{picker.petSortName}}" disabled placeholder="点击设置宠物分类"></input>
+      </label>
+    </view>
+    <view class="i-cell i-input">
+      <view class="i-cell-hd i-input-title">宠物分类：</view>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <input class="i-input-placeholder" value="{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}" disabled placeholder="点击设置宠物分类"></input>
+      </picker>
     </view>
     <view class="i-cell i-input">
       <view class="i-cell-hd i-input-title">是否绝育：</view>
-      <i-tag checkable="{{true}}" color="yellow" checked="{{true}}" type="border" style="margin-right:5px;">已绝育</i-tag>
-      <i-tag checkable="{{true}}" color="yellow" checked="{{true}}" type="border" style="margin-right:5px;">未绝育</i-tag>
+      <i-tag checkable="{{true}}" name="1" color="yellow" checked="{{pet.sterilization==1}}" type="border" bind:change="changeSterilization" style="margin-right:5px;">已绝育</i-tag>
+      <i-tag checkable="{{true}}" name="0" color="yellow" checked="{{pet.sterilization==0}}" type="border" bind:change="changeSterilization" style="margin-right:5px;">未绝育</i-tag>
     </view>
     <view class="i-cell i-input">
       <view class="i-cell-hd i-input-title">出生日期：</view>
-      <picker mode="date" value="{{date}}" start="0-0-0" end="2017-09-01" bindchange="bindDateChange">
-        <input class="i-input-placeholder" disabled placeholder="点击设置日期"></input>
+      <picker mode="date" value="{{pet.birthDate}}" start="0-0-0" end="{{currData}}" bindchange="changeBirthDate">
+        <input class="i-input-placeholder" value="{{pet.birthDate}}" disabled placeholder="点击设置日期"></input>
       </picker>
     </view>
     <view class="i-cell i-input">
       <view class="i-cell-hd i-input-title">到家日期：</view>
-      <picker mode="date" value="{{date}}" start="0-0-0" end="2017-09-01" bindchange="bindDateChange">
-        <input class="i-input-placeholder" disabled placeholder="点击设置日期"></input>
+      <picker mode="date" value="{{pet.homeDate}}" start="0-0-0" end="{{currData}}" bindchange="changeHomeDate">
+        <input class="i-input-placeholder" value="{{pet.homeDate}}" disabled placeholder="点击设置日期"></input>
       </picker>
     </view>
     <view class="btn-group">
-      <i-button i-class="btn-save" bind:click="handleClick" type="success" shape="circle" size="small">完成注册</i-button>
+      <i-button i-class="btn-save" bind:click="insertEvt" type="success" shape="circle" size="small">完成注册</i-button>
     </view>
     <view class="explain">
       <text>注册即代表同意</text>
       <navigator>宠爱用户协议</navigator>
     </view>
-  </i-panel>
+  </view>
 </view>
+
+<view class="i-picker-view-mask" wx:if="{{picker.isShow}}" bindtap="hideMaskSelected" />
+<view wx-if="{{picker.isShow}}" class="i-picker-view">
+  <view class="i-picker-view-btn">
+    <text class="i-btn i-cancel" catchtap="hideMaskSelected">取消</text>
+    <text class="i-btn i-sure" catchtap="hideMaskSelected">确定</text>
+  </view>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChangePickerView">
+    <picker-view-column>
+      <view wx:for="{{picker.column1}}" wx:key="item.id" class="i-picker-view-column-item">{{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{picker.column2}}" wx:key="item.id" class="i-picker-view-column-item">{{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{picker.column3}}" wx:key="item.id" class="i-picker-view-column-item">{{item.name}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>
+<i-message id="message" />
+<i-modal visible="{{ validateModal.visible }}" actions="{{validateModal.actions}}" bind:click="validateModalClose">
+  <view>{{ validateModal.message }}</view>
+</i-modal>
 <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

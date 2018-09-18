@@ -14,7 +14,7 @@
   left: 0;
   width: 100%;
   height: 42px;
-  z-index: 999999;
+  z-index: 999;
 }
 .tabs {
   margin:0 auto;
@@ -60,11 +60,11 @@
   background:#2d8cf0;
 }
 .tabs-tab-current .tabs-tab-title {
-  color:#ffc3c3;
+  color:#fedb1d;
 }
 .tabs-tab-current .tabs-tab-bar{
   display: block;
-  background: #ffc3c3;
+  background: #fedb1d;
 }
 .search{
   position: absolute;
@@ -111,7 +111,7 @@
   border-radius: 5px;
   margin-right: 10px;
   box-sizing: border-box;
-  background: #ffc3c3;
+  background: #fedb1d;
   color: #000;
   padding: 10px;
   display: inline-table; 
@@ -184,7 +184,7 @@
   width: 38px;
   height: 38px;
   z-index: 3;
-  background: #fee566;
+  background: #fce340;
   border-radius: 50%;
   overflow: hidden;
 }

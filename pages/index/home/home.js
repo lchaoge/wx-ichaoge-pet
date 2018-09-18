@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const { $Message } = require('../../../dist/base/index');
 
 Page({
   data: {
@@ -19,11 +20,35 @@ Page({
       './images/3.png'
     ],
     src: '',
-    spinShow: true
+    spinShow: true,
+    loginModal:{
+      visible: false,
+      actions: [
+        {
+          name: '取消'
+        },
+        {
+          name: '授权',
+          color: '#1AAD16',
+          loading: false
+        }
+      ]
+    }
+    
+    
   },
   onLoad(options) {
     // 页面初始化 options为页面跳转所带来的参数
-
+    let isLogin = wx.getStorageSync('currentUser')!=""
+    if (isLogin){
+      // 已登录
+      app.globalData.currentUser = wx.getStorageSync('currentUser');
+      app.globalData.currentPet = wx.getStorageSync('currentPet');
+    }
+    
+    this.setData({
+      "loginModal.visible": !isLogin
+    });
   },
   onReady() {
     // 页面渲染完成
@@ -56,6 +81,29 @@ Page({
     wx.navigateTo({
       url: '../../common/video/video?src=' + e.currentTarget.dataset.videourl,
     })
+  },
+  loginModalClick({ detail }) {
+    if (detail.index === 0) {
+      this.setData({
+        "loginModal.visible": false
+      });
+    } else {
+      const action = [...this.data.loginModal.actions];
+      action[1].loading = true;
+
+      this.setData({
+        "loginModal.actions": action
+      });
+
+      setTimeout(() => {
+        action[1].loading = false;
+        this.setData({
+          "loginModal.visible": false,
+          "loginModal.actions": action
+        });
+        app.loginUser()
+      }, 2000);
+    }
   }
 
 })

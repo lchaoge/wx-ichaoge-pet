@@ -308,4 +308,9 @@
 
 </view>
 
+<i-modal visible="{{ loginModal.visible }}" actions="{{ loginModal.actions }}" bind:click="loginModalClick">
+    <view>允许微信授权</view>
+</i-modal>
+
+<i-message id="message" />
 <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

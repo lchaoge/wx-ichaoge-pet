@@ -1,6 +1,7 @@
 {
   "pages":[
-    
+  
+
     "pages/index/home/home",
     "pages/index/pet/pet",
     "pages/index/news/news",
@@ -25,6 +26,8 @@
 
     "pages/pet/card/card",
     "pages/pet/insert/insert"
+   
+    
   ],
   "window":{
     "navigationBarBackgroundColor": "#fff",
@@ -43,25 +46,25 @@
     "list": [
       {
         "iconPath":"assets/images/home.png",
-        "selectedIconPath":"assets/images/home-selected.png",
+        "selectedIconPath":"assets/images/home-select.png",
         "pagePath": "pages/index/home/home",
         "text": "首页"
       },
       {
         "iconPath": "assets/images/pet.png",
-        "selectedIconPath": "assets/images/pet-selected.png",
+        "selectedIconPath": "assets/images/pet-select.png",
         "pagePath": "pages/index/pet/pet",
         "text": "萌宠"
       },
       {
         "iconPath": "assets/images/news.png",
-        "selectedIconPath": "assets/images/news-selected.png",
+        "selectedIconPath": "assets/images/news-select.png",
         "pagePath": "pages/index/news/news",
         "text": "消息"
       },
       {
         "iconPath": "assets/images/userinfo.png",
-        "selectedIconPath": "assets/images/userinfo-selected.png",
+        "selectedIconPath": "assets/images/userinfo-select.png",
         "pagePath": "pages/index/userinfo/userinfo",
         "text": "我的"
       }
@@ -70,6 +73,5 @@
   "networkTimeout": {
     "request": 10000,
     "downloadFile": 10000
-  },
-  "debug": true
+  }
 }

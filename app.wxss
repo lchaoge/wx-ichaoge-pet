@@ -1,5 +1,5 @@
 /* 粉色 #ffc3c3 */
-/* 黄色 #fce340 */
+/* 黄色 #fedb1d */
 /* 绿色 #6de2c5 */
 /* 西瓜红 #fe7773 */
 page{
@@ -82,7 +82,7 @@ page{
 .i-cell-text {
   line-height:24px;
   height: 24px;
-  font-size:14px;
+  font-size:15px;
   overflow: hidden;
   text-overflow: ellipsis;
   /* white-space: nowrap; */

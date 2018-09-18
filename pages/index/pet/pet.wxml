@@ -16,7 +16,7 @@
         <text class="h1">更多</text>
         <i-panel i-class="drawe-cell-panel">
           <i-cell-group>
-            <i-cell title="编辑萌宠卡" is-link>
+            <i-cell title="编辑萌宠卡" is-link url="/pages/pet/insert/insert?petId={{currentPet.id}}">
               <i-icon type="brush" slot="icon" color="#999" />
             </i-cell>
             <i-cell title="换皮肤" is-link>
@@ -42,40 +42,45 @@
   <scroll-view scroll-y class="scroll-view" bindscrolltoupper="upper" bindscrolltolower="lower" upper-threshold="{{0}}" lower-threshold="{{0}}" scroll-with-animation="{{true}}">
     <view class="home">    
       <view class="home-panel">
+        
         <view class="home-panel-userinfo">
-          <view class="userinfo-left">
-            <view class="title">苗呆</view>
-            <view class="attribute">
-              <i-icon type="like" size="20" color="#80848f">已绝育</i-icon>
-              <text>4岁4个月</text>
+            <view class="userinfo-left">
+              <view class="title">{{currentPet.nickname}}</view>
+              <view class="attribute">
+                <view class="sex {{currentPet.sex==0?'female':'male'}}">
+                  <image src='{{currentPet.sex==0?"./images/female.png":"./images/male.png"}}'></image>
+                  <text>{{currentPet.sterilization==0?"未绝育":"已绝育"}}</text>
+                </view>
+                <text class="birthDate">{{currentPet.birthDate}}天</text>
+              </view>
+              <view class="list">
+                <view class="item">
+                  <image src="./images/weight.png"></image>
+                  <text class="icon-item-name">体重{{currentPet.weight}}kg</text>
+                </view>
+                <view class="item">
+                  <image src="./images/describes.png"></image>
+                  <text class="icon-item-name">{{currentPet.describes}}</text>
+                </view>
+                <view class="item">
+                  <image src="./images/homeDate.png"></image>
+                  <text class="icon-item-name">{{currentPet.homeDate}}</text>
+                </view>
+              </view>
+            </view>  
+            <view class="userinfo-right">
+              <image class="petImage" src="{{currentPet.photo?currentPet.photo:'https://i.loli.net/2017/08/21/599a521472424.jpg'}}"></image>
+              <text class="petNo">萌宠号：{{currentPet.cardNo}}</text>
             </view>
-            <view class="list">
-              <view class="item">
-                <i-icon type="like" size="20" color="#80848f"></i-icon>
-                <text class="icon-item-name">体重1.5kg</text>
-              </view>
-              <view class="item">
-                <i-icon type="like" size="20" color="#80848f"></i-icon>
-                <text class="icon-item-name">想吃什么就吃什么</text>
-              </view>
-              <view class="item">
-                <i-icon type="like" size="20" color="#80848f"></i-icon>
-                <text class="icon-item-name">2014-3-24 白羊座</text>
-              </view>
-            </view>
-          </view>  
-          <view class="userinfo-right">
-            <image class="petImage" src="https://i.loli.net/2017/08/21/599a521472424.jpg"></image>
-            <text class="petNo">萌宠号：789813</text>
           </view>
-        </view>
+
         <view class="home-panel-progress">
           <i-row>
             <i-col span="20" i-class="content">
-              <i-progress percent="85" stroke-width="15" status="active" hide-info></i-progress>
+              <i-progress i-class="progress" percent="85" stroke-width="15" status="wrong" hide-info></i-progress>
             </i-col>
             <i-col span="4" i-class="btn-group">
-              <i-button bind:click="handleClick" type="info" shape="circle" size="small" inline i-class="btn">投食</i-button>
+              <i-button bind:click="handleClick" type="error" shape="circle" size="small" inline i-class="btn">投食</i-button>
             </i-col>
           </i-row>
         </view>
@@ -171,6 +176,10 @@
     <i-load-more tip="暂无数据" loading="{{ false }}" />    
   </scroll-view>
   
+  <view class="insertArticle">
+    <i-icon type="add" size="26" color="#000" />
+  </view>
+
 </view>
 
 <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

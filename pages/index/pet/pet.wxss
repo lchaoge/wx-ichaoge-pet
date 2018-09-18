@@ -1,5 +1,5 @@
 .m-header{
-  background: #ffc3c3;
+  background: #fedb1d;
 }
 .drawer{
   z-index: 9999;
@@ -32,32 +32,81 @@
 }
 .home-panel{
   padding: 10px;
-  background: #ffc3c3;
+  background: #fedb1d;
 }
+/* 列表 */
 .home-panel-userinfo{
   position: relative;
   background: #fff;
   padding: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   overflow: hidden;
+  margin-bottom: 10px;
 }
 .userinfo-left .title{
   font-size: 18px;
   margin-bottom: 10px;
 }
 .userinfo-left .attribute{
+  padding-right: 5px;
   overflow: hidden;
   height: 30px;
   margin-bottom: 15px;
   font-size: 12px;
   color: #999;
 }
+.userinfo-left .attribute .sex.female{
+  background: #f8807f;
+}
+.userinfo-left .attribute .sex.male{
+  background: #75a0ff;
+}
+.userinfo-left .attribute .sex{
+  overflow: hidden;
+  border-radius: 22px;
+  float: left;
+  line-height: 22px;
+  height:22px;
+  padding-left: 22px;
+  padding-right: 10px;
+  position: relative;
+  margin-right: 10px;
+}
+.userinfo-left .attribute .sex image{
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 14px;
+  height:14px;
+  display: block;
+  z-index: 1;
+}
+.userinfo-left .attribute .sex text{
+  color: #fff;
+  font-size: 12px;
+}
+.userinfo-left .attribute .birthDate{
+  display: block;
+  float: left;
+  line-height: 22px;
+  height:22px;
+  font-size: 12px;
+}
 .userinfo-left .list .item{
   line-height: 20px;
   height: 25px;
   font-size: 12px;
   color: #999;
+}
+.userinfo-left .list .item image{
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+.userinfo-left .list .item text{
+  vertical-align: middle;
 }
 .userinfo-right .petImage{
   position: absolute;
@@ -75,6 +124,7 @@
   font-size: 12px;
   color: #999;
 }
+
 .home-panel-progress{
   padding: 10px 0;
 }
@@ -129,7 +179,7 @@
   padding: 10px;
   overflow: hidden;
   position: relative;
-  box-shadow:0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .i-steps .item .avatar{
   position: absolute;
@@ -160,7 +210,23 @@
 .weight{
   background: #9890e3 !important;
 }
-
+.insertArticle{
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 100%;
+  z-index: 5;
+  background: #fedb1d;
+  box-shadow: 0 0 10px 0 rgba(252, 227, 64, 0.3);
+  color: #000;
+}
+.progress .i-progress-bg{
+  background-color:#f23a32;
+}
 
 
 
