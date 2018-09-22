@@ -1,0 +1,40 @@
+<view class="m-header">
+  <view class="h25"></view>
+  <view class='header h45'>
+    <view class='m-action-back' bindtap='actionBackEvt'>
+      <i-icon type="return" size="20" color="#000"></i-icon>
+    </view>
+    <text class="m-title">写真集</text>
+  </view>
+</view>
+<view class='m-content'>
+  <view class="userinfo">
+    <view class="i-cell i-cell-last">
+      <view class="i-cell-icon">
+        <i-avatar src="{{currentPet.photo}}" size="large"></i-avatar>
+      </view>
+      <view class="i-cell-bd">
+        <view class="i-cell-text">
+          <text class="title">{{currentPet.nickname}}</text>
+        </view>
+        <view class="i-cell-desc">{{currentPet.birthDate}}天</view>
+      </view>
+      <view class="i-cell-ft">
+        <i-button type="ghost" open-type="share" i-class="transmit">
+          <i-icon type="share" size="20" />
+        </i-button>
+      </view>
+    </view>
+  </view>
+
+  <view class="photo-panel">
+    <view class="grid-item">
+      <image class="photo-image" src="http://10.110.82.32/static/uploads/images/1537421988103wx216e84db512d7ab5.o6zAJs41h6wlPdML2yXAm_p8QYg0.i2164JlGa0w9bd65d6a0c3f552c5d61af4d1604c6590.jpg"></image>
+    </view>
+  </view>
+</view>
+
+<view class="addPhotoAlbum" bindtap="addPhotoAlbum">添加写真</view>
+
+<i-action-sheet visible="{{ actionSheet.visible }}" actions="{{ actionSheet.actions }}" show-cancel bind:cancel="actionSheetCancelEvt" bind:click="actionSheetEvt" />
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

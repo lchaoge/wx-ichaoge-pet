@@ -3,11 +3,13 @@ Page({
   data: {
     spinShow: true,
     address:{}, // 用户收货地址
-    isAddress: true
+    currentUser:null,
+    isAddress: true,
+    isPhone: true,
   },
   onLoad(options) {
     // 页面初始化 options为页面跳转所带来的参数
-    this.isDefaultEvt();
+
   },
   onReady() {
     // 页面渲染完成
@@ -20,6 +22,7 @@ Page({
   onShow() {
     // 页面显示
     this.isDefaultEvt();
+    this.getCurrentUser();
   },
   onHide() {
     // 页面隐藏
@@ -30,6 +33,34 @@ Page({
   actionBackEvt() {
     wx.switchTab({
       url: '/pages/index/userinfo/userinfo'
+    })
+  },
+  // 获取用户信息
+  getCurrentUser(){
+    let params = {
+      id:app.globalData.currentUser.id
+    }
+    wx.request({
+      method: "POST",
+      url: app.globalData.urlMapping.POST_USER_QUERYBYID,
+      data: params,
+      success: (res) => {
+        if (res.data.code == "000") {
+          console.log("获取用户信息成功");
+          wx.setStorageSync("currentUser", res.data.model);
+          this.setData({
+            currentUser: res.data.model,
+          })
+          if (this.data.currentUser.phone != "" && this.data.currentUser.phone != null){
+            this.setData({
+              isPhone: false
+            })
+          }
+        }
+      },
+      fail: (error) => {
+        console.log("获取用户信息失败" + error.errMsg)
+      }
     })
   },
   // 设置手机号
@@ -43,12 +74,12 @@ Page({
         content: '未授权',
       })
     } else {
-      debugger
       wx.login({
         //获取code 使用wx.login得到的登陆凭证，用于换取openid
         success: (res) => {
           // 解密用户手机号
           let params = {
+            userId:app.globalData.currentUser.id,
             encrypdata: e.detail.encryptedData,
             ivdata: e.detail.iv,
             code: res.code
@@ -58,11 +89,15 @@ Page({
             url: app.globalData.urlMapping.POST_USER_DECODE,
             data: params,
             success: (res) => {
-              console.log(res.data)
               if (res.data.code == "000") {
-                console.log(res.data);
+                console.log(res.data.model);
+                this.setData({
+                  isPhone:false,
+                  currentUser: res.data.model
+                })
               } else {
-                console.log("解密用户手机号失败")
+                wx.showToast({ title: '获取手机号失败', icon: 'none', mask: true })
+                console.log("获取手机号失败")
               }
             },
             fail: (error) => {
@@ -78,7 +113,6 @@ Page({
   },   
   // 设置收货地址
   addressEvt(e){
-    debugger
     wx.authorize({
       scope: "scope.address",
       success:(res)=>{
@@ -117,11 +151,12 @@ Page({
       success: (res) => {
         console.log(res.data)
         if (res.data.code == "000") {
-          console.log("保存收货地址成功");
           this.setData({
             address: res.data.model,
             isAddress:false
           })
+        }else{
+          wx.showToast({ title: '保存收货地址失败', icon: 'none', mask: true })
         }
       },
       fail: (error) => {
@@ -141,11 +176,13 @@ Page({
       success: (res) => {
         console.log(res.data)
         if (res.data.code == "000") {
-          console.log("查询默认收货地址");
           this.setData({
             address: res.data.model,
             isAddress: false
           })
+        }else{
+          console.log("查询默认收货地址失败：")
+          wx.showToast({ title: '查询默认收货地址失败：', icon: 'none', mask: true })
         }
       },
       fail: (error) => {

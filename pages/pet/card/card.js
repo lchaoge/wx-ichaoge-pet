@@ -7,7 +7,6 @@ Page({
   },
   onLoad (options) {
     // 页面初始化 options为页面跳转所带来的参数
-    debugger
     this.setData({
       currentUser: app.globalData.currentUser
     })
@@ -72,7 +71,6 @@ Page({
   },
   // 点击萌宠卡
   setStoragePet(event){
-    debugger
     let params = {
       id: event.currentTarget.dataset.pet.id
     }

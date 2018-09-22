@@ -1,0 +1,68 @@
+<view class="m-header">
+  <view class="h25"></view>
+  <view class='header h45'>
+    <text class="m-title">发布</text>
+  </view>
+</view>
+<view class='m-content'>
+  <view class="userinfo">
+    <view class="i-cell i-cell-last">
+      <view class="i-cell-icon">
+        <i-avatar src="{{currentPet.photo}}" size="large"></i-avatar>
+      </view>
+      <view class="i-cell-bd">
+        <view class="i-cell-text">
+          <text class="title">{{currentPet.nickname}}</text>
+        </view>
+        <view class="i-cell-desc">{{currentPet.birthDate}}天</view>
+      </view>
+      <view class="i-cell-ft">
+        <i-button bind:click="actionBackEvt" type="ghost" shape="circle" i-class="cancel" inline>取消</i-button>
+        <i-button bind:click="insertEvt" type="success" i-class="addPhotoAlbum" inline>发布</i-button>
+      </view>
+    </view>
+  </view>
+  <view class="photo-panel">
+    <view class="textarea">
+      <i-input value="{{ photoAlbum.content }}" bind:change="contentEvt" type="textarea" placeholder="点击输入文字，记录萌宠的成长..." maxlength="1000" />
+    </view>
+    <view class="labelSort">
+      <i-tag i-class="tag" wx:for="{{photoAlbum.labelSortList}}" wx:for-item="item" wx:key="*this" name="{{item.title}}" color="yellow" bindtap="modalShow">#{{item.title}}</i-tag>
+      <i-tag i-class="tag" color="green" bindtap="modalShow">添加标签</i-tag>
+    </view>
+    <view class="uploader">
+      <i-uploader id="uploader" files='{{photoAlbum.photoAlbumImageList}}' bind:change="uploaderChange" maxFileCount='{{maxFileCount}}' isCanAddFile='{{photoAlbum.photoAlbumImageList.length>=maxFileCount-1?false:true}}'></i-uploader>
+    </view>
+    <i-panel>
+      <i-cell-group>
+        <picker mode="date" value="{{photoAlbum.recordDate}}" start="0-0-0" end="{{currData}}" bindchange="changeRecordDate">
+          <i-cell title="记录时间" is-link value="{{photoAlbum.recordDate}}"></i-cell>
+        </picker>
+        <i-cell title="允许被推荐">
+          <i-switch value="{{switch}}" bind:change="switchChange" slot="footer"></i-switch>
+        </i-cell>
+      </i-cell-group>
+    </i-panel>
+  </view>
+</view>
+<view class="labelSortModal" style='display:{{labelModal?"":"none"}}'>
+  <view class="m-header">
+    <view class="h25"></view>
+    <view class='header h45'>
+      <text class="m-title">标签</text>
+    </view>
+  </view>
+  <view class="labelSortModal-inner">
+    <view class="labelSortModal-title">健康</view>
+    <view class="labelSortModal-content">
+      <i-tag i-class="tag" wx:for="{{labelSortList}}" wx:key="{{index}}" name="{{index}}" checked="{{item.checked}}" 
+        bind:change="onChangeTag" checkable="{{true}}" type="border" color="yellow">#{{item.title}}</i-tag>
+    </view>
+  </view>
+  <view class="labelSortModal-btn">
+    <i-button bind:click="modalSuccess" type="success" i-class="addPhotoAlbum" inline>确定</i-button>
+    <i-button bind:click="modalSuccess" shape="circle" i-class="cancel" inline>关闭</i-button>
+  </view>
+</view>
+<i-message id="message" />
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

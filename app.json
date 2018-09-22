@@ -1,6 +1,6 @@
 {
   "pages":[
-  
+    "pages/pet/insertPhotoAlbum/insertPhotoAlbum",
 
     "pages/index/home/home",
     "pages/index/pet/pet",
@@ -25,13 +25,15 @@
     "pages/news/card/card",
 
     "pages/pet/card/card",
-    "pages/pet/insert/insert"
-   
+    "pages/pet/insert/insert",
+    "pages/pet/photoAlbum/photoAlbum"
     
+    
+   
   ],
   "window":{
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "宠爱",
+    "navigationBarTitleText": "萌宠",
     "navigationBarTextStyle":"black",
     "backgroundColor": "#f9f9f9",
     "navigationStyle": "custom",

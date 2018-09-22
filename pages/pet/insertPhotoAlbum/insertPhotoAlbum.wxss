@@ -1,0 +1,84 @@
+page{
+  background: #fff;
+}
+.userinfo .i-cell::after{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  content: '';
+  -webkit-transform: scaleY(.5);
+  transform: scaleY(.5);
+  background-color: #e9eaec;
+}
+.cancel{
+  height: 30px !important;
+  line-height: 30px !important;
+  border-radius: 30px !important;
+  font-size: 12px !important;
+}
+.addPhotoAlbum{
+  color: #000 !important;
+  border: 1px solid #fce340 !important;
+  background-color: #fce340 !important;
+  font-size: 12px !important;
+  height: 30px !important;
+  line-height: 30px !important;
+  border-radius: 30px !important;
+  margin: 0 !important;
+}
+.labelSort{
+  padding: 10px;
+}
+.labelSort .i-tags{
+  margin-right: 10px;
+}
+.uploader{
+  padding: 10px;
+}
+
+.labelSortModal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background: #fff;
+  z-index: 99;
+}
+.labelSortModal .m-header::after{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  content: '';
+  -webkit-transform: scaleY(.5);
+  transform: scaleY(.5);
+  background-color: #e9eaec;
+}
+.labelSortModal-inner{
+  margin-top: 60px;
+}
+.labelSortModal-title{
+  height: 30px;
+  line-height: 30px;
+}
+
+.labelSortModal-inner .tag,.labelSort .tag{
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+.labelSortModal-btn{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: #fff;
+}

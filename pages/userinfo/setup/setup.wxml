@@ -19,11 +19,20 @@
       <i-cell title="收件人：{{address.consignee}} {{address.phone}}" label="{{address.address}}" is-link bind:click="addressEvt"></i-cell>
     </i-panel>
   </view>
+  <view wx:if="{{isPhone}}">
   <i-panel i-class="cell-panel-phone" title="设置安全手机">
     <i-cell title="绑定手机号" is-link bind:click="phoneEvt">
       <i-button i-class="phone" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" type="ghost"></i-button>
     </i-cell>
   </i-panel>
+  </view>
+  <view wx:else>
+  <i-panel i-class="cell-panel-phone" title="设置安全手机">
+    <i-cell title="{{currentUser.phone}}" is-link bind:click="phoneEvt">
+      <i-button i-class="phone" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" type="ghost"></i-button>
+    </i-cell>
+  </i-panel>
+  </view>
 
 </view>
 <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

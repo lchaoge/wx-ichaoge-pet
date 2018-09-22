@@ -39,7 +39,7 @@
     </view>
   </i-drawer>
   
-  <scroll-view scroll-y class="scroll-view" bindscrolltoupper="upper" bindscrolltolower="lower" upper-threshold="{{0}}" lower-threshold="{{0}}" scroll-with-animation="{{true}}">
+  <scroll-view scroll-y class="scroll-view" bindscrolltolower="loadMore" scroll-with-animation="{{true}}">
     <view class="home">    
       <view class="home-panel">
         
@@ -86,7 +86,7 @@
         </view>
       </view>
       <view class="tabs">
-        <view class="tab-item">
+        <view class="tab-item" bindtap="photoAlbumEvt">
           <view class="num">0</view>
           <text>写真</text>
         </view>
@@ -118,7 +118,7 @@
               </view>
             </view>
           </i-step>
-          <i-step icon="collection" i-class="step" status="process">
+          <i-step icon="collection" i-class="step" status="process" wx:for="{{queryObj.list}}" wx:for-item="user" wx:key="idx">
             <view slot="title" class="steps-title">
               <text class="date">8月14日</text>
               <text class="day">1天</text>
@@ -127,41 +127,7 @@
               <view class="item">
                 <view class="content-left">
                   <view class="title">体重1.5千克</view>
-                  <view class="content">体内驱虫</view>
-                </view>
-                <i-avatar size="large" shape="square" slot="icon" i-class="weight avatar">
-                  <i-icon type="like" size="24" />
-                </i-avatar>
-              </view>
-            </view>
-          </i-step>
-          <i-step icon="collection" i-class="step" status="process">
-            <view slot="title" class="steps-title">
-              <text class="date">8月14日</text>
-              <text class="day">1天</text>
-            </view>
-            <view slot="content" class="steps-content">
-              <view class="item">
-                <view class="content-left">
-                  <view class="title">体重1.5千克</view>
-                  <view class="content">体内驱虫</view>
-                </view>
-                <i-avatar size="large" shape="square" slot="icon" i-class="weight avatar">
-                  <i-icon type="like" size="24" />
-                </i-avatar>
-              </view>
-            </view>
-          </i-step>
-          <i-step icon="collection" i-class="step" status="process">
-            <view slot="title" class="steps-title">
-              <text class="date">8月14日</text>
-              <text class="day">1天</text>
-            </view>
-            <view slot="content" class="steps-content">
-              <view class="item">
-                <view class="content-left">
-                  <view class="title">体重1.5千克</view>
-                  <view class="content">体内驱虫</view>
+                  <view class="content">{{user.nickName}}</view>
                 </view>
                 <i-avatar size="large" shape="square" slot="icon" i-class="weight avatar">
                   <i-icon type="like" size="24" />
@@ -173,7 +139,7 @@
       </view>
       <view class="clear"></view>
     </view>
-    <i-load-more tip="暂无数据" loading="{{ false }}" />    
+    <i-load-more tip="暂无数据" loading="{{ false }}" wx:if="{{queryObj.currentPage > queryObj.pageCount}}" />    
   </scroll-view>
   
   <view class="insertArticle">

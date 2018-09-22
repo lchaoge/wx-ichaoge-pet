@@ -12,7 +12,7 @@
 		"nodeModules": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.2.2",
+	"libVersion": "2.3.0",
 	"appid": "wx216e84db512d7ab5",
 	"projectname": "wx-ichaoge-pet",
 	"isGameTourist": false,

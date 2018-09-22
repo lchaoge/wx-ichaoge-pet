@@ -1,4 +1,44 @@
 function Util() {}
+
+//封装网络请求
+Util.ajax = (params) => {
+  wx.showLoading({
+    title: '加载中',
+    mask: true
+  });
+  console.log('use ajax', params.url)
+  if (typeof params.type === 'undefined') params.type = 'GET';
+
+  return new Promise((resolve, reject) => wx.request({
+    url: params.url,
+    method: params.type,
+    data: params.data,
+    success(e) {
+      if (e.data.code === "000") {
+        resolve(e.data)
+      } else {
+        wx.showToast({
+          title: e.data.message,
+          mask: true,
+          icon: 'none'
+        })
+        reject(e.data)
+      }
+    },
+    fail(e) {
+      wx.showLoading({
+        title: '网络错误',
+        mask: true
+      })
+    },
+    complete(){
+      setTimeout(()=>{
+        wx.hideLoading();
+      },1000)
+    }
+  }))
+}
+
 /**
 	 * 获取日期
 	 * 对Date的扩展，将 Date 转化为指定格式的String

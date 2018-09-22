@@ -115,10 +115,7 @@ Page({
       success: (res)=>{
         console.log(res);
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        this.setData({
-          "pet.photo": res.tempFilePaths
-        })
-        this.uploadImg()
+        this.uploadImg(res.tempFilePaths[0])
       },
       fail:(error)=>{
         console.log("选择图片失败："+error);
@@ -127,10 +124,10 @@ Page({
   },
   
   // 上传照片
-  uploadImg: function () {
+  uploadImg: function (file) {
     wx.uploadFile({
       url: app.globalData.urlMapping.POST_PET_UPLOADFILE, //仅为示例，非真实的接口地址
-      filePath: this.data.pet.photo[0],
+      filePath: file,
       name: 'file',
       header: {
         'content-type': 'multipart/form-data'
@@ -142,7 +139,7 @@ Page({
         let data = JSON.parse(res.data);
         if(data.code == "000"){
           this.setData({
-            "pet.photo": data.model.photo[0]
+            "pet.photo": data.model.photo
           })
           console.log(this.data.pet)
         }else{

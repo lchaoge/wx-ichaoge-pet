@@ -21,6 +21,7 @@ Page({
   },
   onShow() {
     // 页面显示
+    // this.queryAllPage()
   },
   onHide() {
     // 页面隐藏
@@ -32,5 +33,20 @@ Page({
     wx.navigateTo({
       url: '../' + detail.key + '/' + detail.key
     });
+  },
+  queryAllPage(){
+    app.globalData.util.ajax({
+      url: app.globalData.urlMapping.POST_USER_QUERYALLPAGE,
+      type:"POST",
+      data:{
+        currentPage:1,
+        pageSize:20
+      }
+    }).then(res=>{
+      console.log(res)
+    }).catch(error=>{
+      console.log(error)
+    })
   }
+  
 })
