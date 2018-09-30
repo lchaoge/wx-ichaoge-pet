@@ -1,5 +1,6 @@
 const urlMapping = require('./assets/js/urlMapping.js');
 const util = require("./assets/js/util.js");
+const watch = require("./assets/js/watch.js");
 const { $Message } = require('./dist/base/index');
 //app.js
 App({
@@ -9,9 +10,12 @@ App({
     currentUser: null,
     currentPet:null,
   },
+  // 属性监听
+  setWatcher(page) {
+    watch.setWatcher(page);
+  },
   onLaunch () {
-    // this.getSetting();
-    // this.UserLogin();
+    
   },
   // 用户登录
   loginUser(){
@@ -113,6 +117,25 @@ App({
       }
     })
   },
-  
+  // 获取当前萌宠卡
+  getCurrentPet(userParams, callback){
+    let params = userParams;
+    this.globalData.util.ajax({
+      url: this.globalData.urlMapping.POST_USER_QUERYUSERANDPET,
+      type: "POST",
+      data: params
+    }).then(res => {
+      console.log(res)
+      if (res.code == "000") {
+        this.globalData.currentUser = res.model.currentUser;
+        this.globalData.currentPet = res.model.currentPet;
+        wx.setStorageSync("currentUser", res.model.currentUser);
+        wx.setStorageSync("currentPet", res.model.currentPet);
+        callback(res);
+      }
+    }).catch(error => {
+      console.log(error)
+    })
+  }
   
 })

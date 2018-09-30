@@ -87,15 +87,15 @@
       </view>
       <view class="tabs">
         <view class="tab-item" bindtap="photoAlbumEvt">
-          <view class="num">0</view>
+          <view class="num">{{countObj.photoAlnumCount}}</view>
           <text>写真</text>
         </view>
         <view class="tab-item">
-          <view class="num">3</view>
+          <view class="num">0</view>
           <text>传记</text>
         </view>
         <view class="tab-item">
-          <view class="num">2</view>
+          <view class="num">0</view>
           <text>健康</text>
         </view>
       </view>

@@ -1,0 +1,103 @@
+<view class="m-header">
+  <view class="h25"></view>
+  <view class='header h45'>
+    <view class='m-action-back' bindtap='actionBackEvt'>
+      <i-icon type="return" size="20" color="#000"></i-icon>
+    </view>
+    <text class="m-title">写真详情</text>
+  </view>
+</view>
+<view class='m-content'>
+  <view class="userinfo">
+    <view class="i-cell i-cell-last">
+      <view class="i-cell-icon">
+        <i-avatar src="{{currentPet.photo}}" size="large"></i-avatar>
+      </view>
+      <view class="i-cell-bd">
+        <view class="i-cell-text">
+          <text class="title">{{currentPet.nickname}}</text>
+        </view>
+        <view class="i-cell-desc">{{currentPet.birthDate}}天</view>
+      </view>
+      <view class="i-cell-ft">
+        <i-button wx:if="{{photoAlbum.creator != currentPet.userId}}" bind:click="actionBackEvt" type="ghost" shape="circle" i-class="addPhotoAlbum" >关注</i-button>
+        <i-button wx:else type="ghost" i-class="transmit" bind:click="addPhotoAlbum">
+          <i-icon type="more" size="20" />
+        </i-button>
+      </view>
+    </view>
+  </view>
+  <view class="content">{{photoAlbum.content}}</view>
+  <view class="labelSort" wx:if="{{photoAlbum.labelSortList.length>0}}">
+    <text class="tag" wx:for="{{photoAlbum.labelSortList}}" wx:for-item="item" wx:key="{{index}}">#{{item.title}}</text>
+  </view>
+  <view wx:if="{{photoAlbum.type==1 || photoAlbum.type==3}}">
+    <i-list-image files="{{photoAlbum.photoAlbumImageList}}" item-height="{{gridItemHeight}}" image-height="{{gridItemImgHeight}}"></i-list-image>
+  </view>
+  <view wx:if="{{photoAlbum.type==2}}" wx:for="{{photoAlbum.photoAlbumImageList}}" wx:key="{{index}}" wx:for-item="item">
+    <video class="video" bindplay="playEvt" style="height:{{gridItemHeight}};width:{{gridItemHeight}}" src="{{item.imageUrl}}"></video>
+  </view>  
+
+  <view class="commentList" wx:if="{{photoAlbumComment.length>0}}">
+    <view class="commentList-title">评论</view>
+    <view class="commentList-content">
+      <view class="m-cell" wx:for="{{photoAlbumComment}}" wx:key="{{index}}">
+        <view class="m-img">
+          <image src="{{item.photo}}"></image>
+        </view>
+        <view class="m-box">
+          <view class="comment-title">
+            <text class="nickName">{{item.nickName}}</text>
+            <text class="floor">{{item.floor}}楼</text>
+            <text class="created">{{item.created}}</text>
+          </view>
+          <view class="comment-content">{{item.content}}</view>
+          <view class="weui-cell" wx:if="{{item.children.length>0}}">
+            <view class="item" wx:for="{{item.children}}" wx:for-item="el" wx:key="{{index}}" wx:if="{{index<2}}">
+              <navigator>{{el.nickName}}:</navigator>
+              <text>回复</text>
+              <navigator>{{el.stayUserName}}:</navigator>
+              <text>{{el.content}}</text>
+            </view>
+            <view class="item" wx:if="{{item.children.length>2}}">
+              查看全部{{item.children.length}}条评论
+              <i-icon type="unfold" size="12" color="#333" />
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+<!-- 评论 -->
+<view class="commentBox">
+  <view class="inputFrom">
+    <view class="inputBox">
+      <input type="text" value="{{comment.from.content}}" bindconfirm="insertCommentEvt" bindinput="commentInputEvt" bindfocus="commentFocusEvt" bindblur="commentBlurEvt" placeholder="评论一下吧..."></input>
+    </view>
+    <view class="btnBox" wx:if="{{comment.visible}}">
+      <i-button i-class="btn" bind:click="insertCommentEvt" type="warning">评论</i-button>
+    </view>
+  </view>
+  <view class="btn-group" wx:if="{{!comment.visible}}">
+    <view class="grid-item">
+      <i-icon type="message" size="24" color="#000" />
+      <view class="label">评论</view>
+    </view>
+    <view class="grid-item">
+      <i-icon type="like" size="24" color="#000" />
+      <view class="label">喜欢</view>
+    </view>
+    <view class="grid-item">
+      <i-icon type="send" size="24" color="#000" />
+      <view class="label">分享</view>
+    </view>
+  </view>
+</view>
+
+<i-modal visible="{{ validateModal.visible }}" actions="{{validateModal.actions}}" bind:click="validateModalClose">
+  <view>{{ validateModal.message }}</view>
+</i-modal>
+<i-action-sheet visible="{{ actionSheet.visible }}" actions="{{ actionSheet.actions }}" show-cancel bind:cancel="actionSheetCancelEvt" bind:click="actionSheetEvt" />
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

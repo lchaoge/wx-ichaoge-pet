@@ -1,0 +1,36 @@
+.gif-content{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+.gif-content .navigator{
+  vertical-align: middle;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80vw;
+  height: 200px;
+  margin-top: -100px;
+  margin-left: -40vw;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px dotted #dddddd;
+  background: #fff;
+}
+.gif-content .navigator .btn{
+  margin: 58px auto 10px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  background: #6890e2;
+  text-align: center;
+}
+.gif-content .navigator text{
+  font-size: 18px;
+  color: #666666;
+}

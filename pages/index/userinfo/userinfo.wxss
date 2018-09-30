@@ -10,11 +10,19 @@
   font-size: 12px;
   padding: 5px;
   background: fff;
-  color: #999;
-  border-radius: 20px;
-  border: 1px solid #999;
+  color: #fff !important;
+  border-radius: 20px !important;
+  border: 1px solid #1AAD16 !important;
   text-anchor: middle;
   line-height: auto;
   display:initial;
-  background: #fff;
+  background: #1AAD16 !important;
+  margin: 0 !important;
+}
+.i-cell-ft .tag image{
+  vertical-align: middle;
+  width: 16px;
+  height:16px;
+  margin-right:4px;
+
 }

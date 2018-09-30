@@ -28,9 +28,22 @@
   </view>
 
   <view class="photo-panel">
-    <view class="grid-item">
-      <image class="photo-image" src="http://10.110.82.32/static/uploads/images/1537421988103wx216e84db512d7ab5.o6zAJs41h6wlPdML2yXAm_p8QYg0.i2164JlGa0w9bd65d6a0c3f552c5d61af4d1604c6590.jpg"></image>
-    </view>
+    <scroll-view scroll-y class="scroll-view" bindscrolltolower="loadMore" scroll-with-animation="{{true}}">
+      <view class="grid-item" style="height:{{gridItemHeight}};width:{{gridItemHeight}}" wx:for="{{queryObj.list}}" wx:key="{{item}}" data-id="{{item.id}}" wx:for-item="item" bindtap="detailEvt">
+        <view wx:if="{{item.type==1 || item.type==3}}">
+          <text class="photo-size" wx:if="{{item.photoAlbumImageList.length>1?true:false}}">{{item.photoAlbumImageList.length}}</text>
+          <image class="photo-image" style="height:{{gridItemHeight}};width:{{gridItemHeight}}" src="{{item.photoAlbumImageList[0].imageUrl}}"></image>
+        </view>
+        <view wx:else>
+          <view class="video">
+            <image  class="video" bindplay="playEvt" style="height:{{gridItemHeight}};width:{{gridItemHeight}}" src="{{item.photoAlbumImageList[0].firstVideoImageUrl}}" data-url="{{item.photoAlbumImageList[0].imageUrl}}"></image>
+            <view class="media-video-paly" catchtap="playEvt" data-url="{{item.photoAlbumImageList[0].imageUrl}}">
+              <i-icon type="play_fill" size="18" color="#fff"></i-icon>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
   </view>
 </view>
 

@@ -1,0 +1,13 @@
+<view class="i-class list-image">  
+  <view class="list-image-item" style="height:{{itemHeight}};width:{{itemHeight}}" wx:for="{{files}}" wx:key="{{index}}" wx:for-item="item">
+    <view wx:if="{{files.length == 1}}">
+      <image bindtap="previewImage" data-files="{{files}}" data-url="{{item.imageUrl}}" class="image" style="height:{{(itemHeight)}};width:{{(itemHeight)}}" src="{{item.imageUrl}}"></image>
+    </view>
+    <view wx:if="{{files.length == 2 || files.length == 4}}">
+      <image bindtap="previewImage" data-files="{{files}}" data-url="{{item.imageUrl}}" class="image" style="height:{{(imageHeight)}};width:{{((index+1)%2==0?itemHeight:imageHeight)}}" src="{{item.imageUrl}}"></image>
+    </view>
+    <view wx:else>
+      <image bindtap="previewImage" data-files="{{files}}" data-url="{{item.imageUrl}}" class="image" style="height:{{(imageHeight)}};width:{{((index+1)%3==0?itemHeight:imageHeight)}}" src="{{item.imageUrl}}"></image>
+    </view>
+  </view>
+</view>

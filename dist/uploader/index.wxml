@@ -6,13 +6,13 @@
   <view class="weui-uploader__bd">
     <view class="weui-uploader__files" id="uploaderFiles">
       <block wx:for-items="{{files}}" wx:key="{{index}}">
-        <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+        <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}" style="width:{{(imageWidth)}}px;height:{{(imageWidth)}}px;">
           <view class="weui-uploader__delete" catchtap="deleteImage">×</view>
-          <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+          <image class="weui-uploader__img" src="{{item}}" style="width:{{(imageWidth)}}px;height:{{(imageWidth)}}px;" mode="aspectFill" />
         </view>
       </block>
     </view>
-    <view class="weui-uploader__input-box" style='display:{{isCanAddFile?"":"none"}}'>
+    <view class="weui-uploader__input-box" style='width:{{(imageWidth)}}px;height:{{(imageWidth)}}px;display:{{isCanAddFile?"":"none"}}'>
       <view class="weui-uploader__input" bindtap="chooseImage"></view>
     </view>
   </view>

@@ -6,6 +6,10 @@
     "i-avatar": "../../../dist/avatar/index",
     "i-button": "../../../dist/button/index",
     "i-modal": "../../../dist/modal/index",
-    "i-action-sheet": "../../../dist/action-sheet/index"
+    "i-tag": "../../../dist/tag/index",
+    "i-input": "../../../dist/input/index",
+    "i-load-more": "../../../dist/load-more/index",
+    "i-action-sheet": "../../../dist/action-sheet/index",
+    "i-list-image": "../../../dist/list-image/index"
   }
 }

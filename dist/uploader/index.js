@@ -18,14 +18,27 @@ Component({
     isCanAddFile: {
       type: Boolean,
       value: true
+    },
+    imageWidth:{
+      type: Number,
+      value: 100
     }
   },
   data: {
     files:[],
     maxFileCount:9,
-    isCanAddFile:true
+    isCanAddFile:true,
+    imageWidth:100
   },
   methods: {
+    // 计算图片宽度
+    _computeImage(size) {
+      // 设置宽度
+      let windowWidth = wx.getSystemInfoSync().windowWidth-40;
+      this.setData({
+        imageWidth: windowWidth / 3
+      })
+    },
     /*图片上传 */
     chooseImage (e) {
       var that = this;
@@ -34,6 +47,10 @@ Component({
         sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
         success: (res)=>{
           // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+
+          // 计算宽度
+          // this._computeImage();
+
           if (that.data.files.length >= that.data.maxFileCount-1) {
             that.data.isCanAddFile = false;
           }
@@ -41,9 +58,11 @@ Component({
             files: that.data.files.concat(res.tempFilePaths),
             isCanAddFile: that.data.isCanAddFile
           });
+          
           this.triggerEvent('change', {
             files: res.tempFilePaths
           })
+          
         }
       })
     },
@@ -77,6 +96,9 @@ Component({
             files,
             isCanAddFile: true
           });
+          this.triggerEvent('remove', {
+            files: files
+          })
         }
       })
     },

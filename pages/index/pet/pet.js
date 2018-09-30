@@ -11,27 +11,34 @@ Page({
       pageCount:10, // 共多少页
       count:0, // 共多少条
       list:[]
+    },
+    countObj:{
+      photoAlnumCount:0 // 写真
     }
   },
   onLoad(options) {
     // 页面初始化 options为页面跳转所带来的参数
-    this.getCurrentPet();
+    
     this.setData({
       showLeft: false,
       spinShow: false
     });
+    
+    this.getCurrentPet();
+    this.loadMore();
+    this.queryCount();
   },
   onReady() {
     // 页面渲染完成
   },
   onShow() {
     // 页面显示
-    this.getCurrentPet();
-    this.loadMore();
     this.setData({
       showLeft: false,
       spinShow: false
     });
+
+    this.getCurrentPet();
   },
   onHide() {
     // 页面隐藏
@@ -57,6 +64,7 @@ Page({
       url: '/pages/pet/card/card'      
     })
   },
+  // 下拉刷新
   loadMore (e) {
     if (this.data.queryObj.currentPage > this.data.queryObj.pageCount){
       return false;
@@ -107,6 +115,28 @@ Page({
   photoAlbumEvt(){
     wx.navigateTo({
       url: "/pages/pet/photoAlbum/photoAlbum",
+    })
+  },
+  // 查询宠物的各个数据
+  queryCount(){
+    let params = {
+      id:this.data.currentPet.id
+    }
+    app.globalData.util.ajax({
+      url: app.globalData.urlMapping.POST_PET_QUERYCOUNT,
+      type: "POST",
+      data: params
+    }).then(res => {
+      console.log(res)
+      if (res.code == "000") {
+        this.setData({
+          "countObj.photoAlnumCount": res.model.photoAlnumCount
+        })
+      }else{
+        console.log(res)
+      }
+    }).catch(error => {
+      console.log(error)
     })
   }
 

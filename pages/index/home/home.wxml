@@ -144,7 +144,7 @@
         </swiper>
         <scroll-view scroll-x class="scroll-view-x" style="width:100%"> 
           <view class="scroll-view-x"> 
-            <view class="scroll-x-item ranking-list">
+            <view class="scroll-x-item ranking-list" data-url="/pages/pet/photoAlbumGif/photoAlbumGif" bindtap="navigateToEvt">
               <view class="title">今日猫榜</view>
               <view class="desc">人气TOP50</view>
               <view class="ranking-list-view">
@@ -158,17 +158,17 @@
                 <image class="icon-crown" src="./images/icon-crown.png"></image>
               </view>
             </view>
-            <view class="scroll-x-item discuss">
+            <view class="scroll-x-item discuss" data-url="/pages/pet/photoAlbumGif/photoAlbumGif" bindtap="navigateToEvt">
               <view class="title">话题讨论</view>
               <view class="desc border">养宠话题</view>
               <image class="image" src="./images/discuss.png"></image>
             </view>
-            <view class="scroll-x-item diary">
+            <view class="scroll-x-item diary" data-url="/pages/pet/photoAlbumGif/photoAlbumGif" bindtap="navigateToEvt">
               <view class="title">猫生传记</view>
               <view class="desc border">长图文</view>
               <image class="image" src="./images/diary.png"></image>
             </view>
-            <view class="scroll-x-item animation">
+            <view class="scroll-x-item animation" data-url="/pages/pet/photoAlbumGif/photoAlbumGif" bindtap="navigateToEvt">
               <view class="title">动画专区</view>
               <view class="desc border">Gif</view>
               <image class="image" src="./images/animation.png"></image>
@@ -309,7 +309,7 @@
 </view>
 
 <i-modal visible="{{ loginModal.visible }}" actions="{{ loginModal.actions }}" bind:click="loginModalClick">
-    <view>允许微信授权</view>
+    <view>使用微信授权登录</view>
 </i-modal>
 
 <i-message id="message" />

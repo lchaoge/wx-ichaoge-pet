@@ -14,7 +14,7 @@
       </view>
       <view class="i-cell-ft">
         <i-button i-class="tag" bind:click="getUserInfo" open-type="getUserInfo" catchtap="getUserInfo" type="ghost" shape="circle" size="small" inline>
-          <i-icon type="mine" size="13" />
+          <image src="./images/weixin.png"></image>
           <text>更新头像</text>
         </i-button>
       </view>

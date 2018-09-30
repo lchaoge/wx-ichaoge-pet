@@ -170,7 +170,7 @@
 }
 .i-steps .day{
   margin-left: 10px;
-  font-size: 12px;
+  font-size: 10px;
   color: #999;
   font-weight: normal;
 }

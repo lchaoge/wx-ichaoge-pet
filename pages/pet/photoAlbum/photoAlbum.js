@@ -8,7 +8,14 @@ Page({
       recordDate: "", // 记录时间
       recommend: "1", // 允许被推荐  1: 允许，0: 不允许
       photoAlbumImageList:[],
-      labelSortList:[]
+      labelSortList:[],
+    },
+    queryObj: {
+      currentPage: 1, // 当前页
+      pageSize: 20, // 每页条数
+      pageCount: 20, // 共多少页
+      count: 0, // 共多少条
+      list: []
     },
     spinShow:true,
     currentPet:null,
@@ -22,7 +29,8 @@ Page({
           name: '上传视频'
         }
       ]
-    }
+    },
+    gridItemHeight:"100px"
   },
   onLoad (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -44,6 +52,8 @@ Page({
   },
   onShow () {
     // 页面显示
+
+    this.loadMore();
     // 允许转发
     wx.showShareMenu({
       withShareTicket: true
@@ -56,7 +66,9 @@ Page({
     // 页面关闭
   },
   actionBackEvt() {
-    wx.navigateBack();
+    wx.switchTab({
+      url: "/pages/index/pet/pet",
+    })
   },
   // 转发
   onShareAppMessage(res) {
@@ -64,6 +76,48 @@ Page({
     return {
       title: currentPet.nickname + '的写真集',
     }
+  },
+  // 写真集
+  loadMore(e) {
+    if (this.data.queryObj.currentPage > this.data.queryObj.pageCount) {
+      return false;
+    }
+    let params = {
+      petId: this.data.currentPet.id,
+      currentPage: this.data.queryObj.currentPage,
+      pageSize: this.data.queryObj.pageSize
+    }
+    app.globalData.util.ajax({
+      url: app.globalData.urlMapping.POST_PHOTOALBUM_QUERYALLPAGE,
+      type: "POST",
+      data: params
+    }).then(res => {
+      console.log(res)
+      if (res.code == "000") {
+        let currentPage = res.model.currentPage
+        if (res.model.currentPage <= res.model.pageCount) {
+          currentPage++;
+        }
+        if (res.model.data.length > 0) { // 判断是不是有数据
+          let list = this.data.queryObj.list.concat(res.model.data)
+          this.setData({
+            "queryObj.currentPage": currentPage, // 当前页
+            "queryObj.pageSize": res.model.pageSize, // 每页条数
+            "queryObj.pageCount": res.model.pageCount, // 共多少页
+            "queryObj.count": res.model.count, // 共多少条
+            "queryObj.list": list
+          })
+        }
+        // 设置宽度
+        let windowWidth = wx.getSystemInfoSync().windowWidth/3
+        this.setData({    
+          gridItemHeight: windowWidth + 'px'  
+        })    
+     
+      }
+    }).catch(error => {
+      console.log(error)
+    })
   },
   // 关闭添加写真
   actionSheetCancelEvt(){
@@ -103,12 +157,14 @@ Page({
         sourceType: ['album', 'camera'],
         maxDuration: 60,
         camera: 'back',
-        success(res) {
+        success:(res)=>{
           console.log(res);
-          this.uploadFile(res.tempFilePaths,0);
+          let fileList = [];
+          fileList.push(res.tempFilePath)
+          this.uploadFile(fileList,2);
         },
         fail: (error) => {
-          console.log("选择图片失败：" + error);
+          console.log("选择视频失败：" + error);
         },
         complete:()=>{
         
@@ -120,7 +176,7 @@ Page({
   /**
    * 上传图片或视频到服务器
    * 返回服务器路径
-   * @type 类型：1=图片，0=视频
+   * @type 类型：1=图片，2=视频,3=GIF
    */
   uploadFile(fileList, type){
     this.setData({
@@ -137,7 +193,20 @@ Page({
       url: "/pages/pet/insertPhotoAlbum/insertPhotoAlbum?params=" + photoAlbum,
     })
     
-  }
+  },
+  // 进入详情
+  detailEvt(e){
+    let photoAlbumId = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: "/pages/pet/photoAlbumDetail/photoAlbumDetail?id=" + photoAlbumId,
+    })
+  },
+  // 播放视频
+  playEvt(e) {
+    wx.navigateTo({
+      url: '../../common/video/video?src=' + e.currentTarget.dataset.url,
+    })
+  },
 
     
 })

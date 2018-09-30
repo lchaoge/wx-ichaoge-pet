@@ -1,6 +1,6 @@
 {
   "pages":[
-    "pages/pet/insertPhotoAlbum/insertPhotoAlbum",
+    
 
     "pages/index/home/home",
     "pages/index/pet/pet",
@@ -9,6 +9,7 @@
 
     "pages/common/video/video",
     "pages/common/search/search",
+    "pages/common/gif/gif",
 
     "pages/userinfo/about/about",
     "pages/userinfo/exchange/exchange",
@@ -26,7 +27,11 @@
 
     "pages/pet/card/card",
     "pages/pet/insert/insert",
-    "pages/pet/photoAlbum/photoAlbum"
+    "pages/pet/photoAlbum/photoAlbum",
+    "pages/pet/insertPhotoAlbum/insertPhotoAlbum",
+    "pages/pet/photoAlbumGif/photoAlbumGif",
+    "pages/pet/photoAlbumDetail/photoAlbumDetail"
+    
     
     
    

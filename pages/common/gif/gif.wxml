@@ -1,0 +1,9 @@
+<view class="gif-content">
+  <navigator class="navigator" bindtap="addGifEvt">
+    <view class="btn">
+      <i-icon type="add" size="35" color="#fff" />
+    </view>
+    <text>添加动图</text>
+  </navigator>
+</view>
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

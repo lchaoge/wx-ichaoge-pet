@@ -10,7 +10,6 @@ Page({
     this.setData({
       currentUser: app.globalData.currentUser
     })
-    this.queryPetEvt();
   },
   onReady () {
     // 页面渲染完成
@@ -22,6 +21,7 @@ Page({
   },
   onShow () {
     // 页面显示
+    this.queryPetEvt();
   },
   onHide () {
     // 页面隐藏
@@ -72,33 +72,29 @@ Page({
   // 点击萌宠卡
   setStoragePet(event){
     let params = {
+      userId:app.globalData.currentUser.id,
+      isCurrent:1,
+      cardNo: event.currentTarget.dataset.pet.cardNo,
       id: event.currentTarget.dataset.pet.id
     }
-    wx.request({
-      method: "POST",
-      url: app.globalData.urlMapping.POST_PET_QUERYPETBYID,
-      data: params,
-      success: (res) => {
-        console.log(res)
-        if (res.data.code == "000") {
-          wx.setStorageSync('currentPet', res.data.model);
-          app.globalData.currentPet = res.data.model;
-          wx.switchTab({
-            url: "/pages/index/pet/pet"
-          })
-        } else {
-          console.log("查询萌宠卡失败");
-        }
-      },
-      fail: (error) => {
-        console.log("查询萌宠卡失败" + error);
-      },
-      complete: () => {
-
+    app.globalData.util.ajax({
+      url: app.globalData.urlMapping.POST_PET_UPDATE,
+      type: "POST",
+      data: params
+    }).then(res => {
+      console.log(res)
+      if (res.code == "000") {
+        wx.setStorageSync('currentPet', res.model);
+        app.globalData.currentPet = res.model;
+        wx.switchTab({
+          url: "/pages/index/pet/pet"
+        })
+      }else{
+        console.log("查询萌宠卡失败");
       }
+    }).catch(error => {
+      console.log("查询萌宠卡失败" + error);
     })
-
-   
   }
   
     

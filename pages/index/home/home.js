@@ -28,44 +28,57 @@ Page({
           name: '取消'
         },
         {
-          name: '授权',
+          name: '确认',
           color: '#1AAD16',
           loading: false
         }
       ]
     }
     
-    
   },
+  // 页面初始化 options为页面跳转所带来的参数
   onLoad(options) {
-    // 页面初始化 options为页面跳转所带来的参数
-    let isLogin = wx.getStorageSync('currentUser')!=""
+    
+    let isLogin = wx.getStorageSync('currentUser')!="";
     if (isLogin){
       // 已登录
       app.globalData.currentUser = wx.getStorageSync('currentUser');
-      app.globalData.currentPet = wx.getStorageSync('currentPet');
+      let params = {
+        id: app.globalData.currentUser.id
+      }
+      app.getCurrentPet(params,(res)=>{
+        if (res.code == "000"){
+          app.globalData.currentUser = res.model.currentUser;
+          app.globalData.currentPet = res.model.currentPet;
+          wx.setStorageSync("currentUser", res.model.currentUser);
+          wx.setStorageSync("currentPet", res.model.currentPet);
+        }
+      })
     }
-    
     this.setData({
       "loginModal.visible": !isLogin
     });
   },
+  // 页面渲染完成
   onReady() {
-    // 页面渲染完成
+    
     setTimeout(() => {
       this.setData({
         spinShow: false
       });
     }, 1000)
   },
+  // 页面显示
   onShow() {
-    // 页面显示
+    
   },
+  // 页面隐藏
   onHide() {
-    // 页面隐藏
+    
   },
+  // 页面关闭
   onUnload() {
-    // 页面关闭
+    
   },
   tabItemEvt(e){
     this.setData({
@@ -104,6 +117,11 @@ Page({
         app.loginUser()
       }, 2000);
     }
+  },
+  navigateToEvt(e){
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url,
+    })
   }
 
 })

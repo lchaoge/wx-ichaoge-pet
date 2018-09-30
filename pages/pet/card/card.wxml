@@ -22,11 +22,7 @@
       </view>
     </view>
   </view>
-
-   
-
   <view class="card-panel">
-
     <view class="home-panel-userinfo" wx:for="{{petList}}" wx:key="{{item.id}}" data-pet="{{item}}" bindtap="setStoragePet">
       <view class="userinfo-left">
         <view class="title">{{item.nickname}}</view>
